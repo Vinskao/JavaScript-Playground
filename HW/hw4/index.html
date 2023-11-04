@@ -8,7 +8,13 @@
   </head>
   <body>
     <h1 id="getCard">21點</h1>
-    <button onclick="addNewElement2()">洗牌</button>
-    <script async src="script.js"></script>
+    <button onclick="shuffle()">洗牌</button>
+    <button onclick="getTwoCards()">首次發牌</button>
+    <button onclick="getOneCard()">加1張牌</button>
+    <button onclick="displayRemainingCards()">剩下的牌</button>
+    <h3>您的手牌:</h3>
+    <div id="cardImages"></div>
+
+    <script src="script.js"></script>
   </body>
 </html>
