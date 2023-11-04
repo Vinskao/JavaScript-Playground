@@ -26,25 +26,32 @@ function cardShuffle() {
 }
 
 function cardShuffleX2() {
-  var shuffleSecondTime = cardShuffle();
+  var getCardArrayX2 = cardShuffle();
 
   for (i = 51; i >= 0; i--) {
-    var randomChooseX2 = shuffleSecondTime[getRandomInt(i)];
-    [shuffleSecondTime[i], shuffleSecondTime[randomChooseX2]] = [
-      shuffleSecondTime[randomChooseX2],
-      shuffleSecondTime[i],
+    var randomChooseX2 = getCardArrayX2[getRandomInt(i)];
+    [getCardArrayX2[i], getCardArrayX2[randomChooseX2]] = [
+      getCardArrayX2[randomChooseX2],
+      getCardArrayX2[i],
     ];
   }
-  return shuffleSecondTime;
+  return getCardArrayX2;
 }
 
-function indexToImg(index) {
+function giveCard(index) {
+  var cardValue = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   var cardIndex = [
     0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
     21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39,
     40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51,
   ];
   var cardImages = "";
+
+  for (i = 1; i < getCardArrayX2.length; i++) {
+    var selectCard = getCardArrayX2.shift();
+
+    i += 1;
+  }
 }
 
 function getRandomInt(max) {
