@@ -10,21 +10,18 @@
     <div id="nine"></div>
     <script>
       var nine = document.getElementById("nine");
-      nine.innerHTML = `<table style="border: 1px solid red;"></table>`;
+      var tableHTML = `<table style="border: 1px solid red;">`;
       for (let i = 2; i <= 9; i++) {
-        // nine.innerHTML = `<table><tr></tr><br></table>`;
-        // nine.innerHTML += `<table><tr>${i}</tr></table>`;
-        nine.innerHTML += `
-          <br>
-            `;
+        tableHTML += `<tr>`;
         for (let j = 1; j <= 9; j++) {
-          //   document.write(`<table><tr>${i}*${j}=${i * j}</tr></table>`);
-          //   nine.innerHTML += `<table><tr>${i}*${j}=${i * j}</tr></table>`;
-          nine.innerHTML += `
-            <td>${i} * ${j} = ${i * j}</td>
-            `;
+          tableHTML += `<td style="padding: 10px; border: 1px solid red;">${i} * ${j} = ${
+            i * j
+          }</td>`;
         }
+        tableHTML += `</tr>`;
       }
+      tableHTML += `</table>`;
+      nine.innerHTML = tableHTML;
     </script>
   </body>
 </html>
