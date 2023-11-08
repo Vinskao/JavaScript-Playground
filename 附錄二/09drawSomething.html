@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>09drawSomething.html</title>
+    <style>
+        #myCanvas {
+            border: 1px green solid;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var canvas = document.getElementById("myCanvas");
+            var context = canvas.getContext("2d");
+            var btnSave = document.getElementById("buttonSave").addEventListener("click", btnSavef);
+            canvas.addEventListener("mousedown", mouseDownf);
+            canvas.addEventListener("mousemove", mouseMovef);
+            canvas.addEventListener("mouseup", mouseUpf);
+
+
+
+            function btnSavef() {
+                var imgObj = document.getElementById("img1");
+                imgObj.src = canvas.toDataURL("image/png");
+            }
+
+            var flag;
+
+            //開始畫圖
+            function mouseDownf(nsEvent) {
+                flag = true;
+                var theEvent = nsEvent || event;
+                context.beginPath();
+                context.moveTo(theEvent.offsetX, theEvent.offsetY);
+            }
+
+            //畫圖中
+            function mouseMovef(nsEvent) {
+                if (flag) {
+                    var theEvent = nsEvent || event;
+                    context.lineTo(theEvent.offsetX, theEvent.offsetY);
+                    var color = document.getElementById("color1").value;
+                    var w = document.getElementById("number1").value;
+                    context.strokeStyle = color;
+                    context.lineWidth = w;
+                    context.stroke();
+                }
+            }
+
+            //結束畫圖
+            function mouseUpf() {
+                context.closePath();
+                flag = false;
+            }
+
+        };
+    </script>
+
+
+</head>
+
+<body>
+    <input type="color" id="color1" style="vertical-align:bottom">
+    <input type="number" min="2" max="20" step="2" id="number1" value="2">
+    <select id="ColorSelect">
+        <option value="black">black</option>
+        <option value="yellow">yellow</option>
+        <option value="blue">blue</option>
+        <option value="pink">pink</option>
+        <option value="purple">purple</option>
+        <option value="green">green</option>
+    </select>
+    <select id="WidthSelect">
+        <option value="2">2</option>
+        <option value="4">4</option>
+        <option value="6">6</option>
+        <option value="8">8</option>
+        <option value="10">10</option>
+        <option value="12">12</option>
+    </select>
+
+    <br />
+    <canvas id="myCanvas" width="400" height="300"></canvas>
+    <br />
+    <input type="button" value="清除" onclick="location.reload()" />
+    <input type="button" value="儲存" id="buttonSave" />
+    <br />
+    <img id="img1"  />   
+</body>
+
+</html>

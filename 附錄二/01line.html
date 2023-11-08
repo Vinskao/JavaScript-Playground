@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>01line.html</title>
+    <script>
+        window.onload = function () {
+            var canvas = document.getElementById("myCanvas");
+            var context = canvas.getContext("2d");          
+
+            context.beginPath();
+            context.moveTo(100, 50);
+            context.lineTo(50, 100);
+            context.lineTo(150, 100);
+            context.lineTo(100,50);
+
+            context.lineWidth = 10;
+            context.lineJoin = "round";  //bevel,round,miter
+            context.closePath();
+
+            context.strokeStyle = "#ff0000";
+            context.stroke();
+
+            context.fillStyle = "#0000ff";
+            context.fill();
+
+        };
+    </script>
+</head>
+<body>
+    <canvas id="myCanvas" style="background-color:pink;"  width="400" height="300"></canvas>
+</body>
+</html>

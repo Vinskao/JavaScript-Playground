@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ninenine</title>
+    <style></style>
+  </head>
+  <body>
+    <div id="nine"></div>
+    <script>
+      var nine = document.getElementById("nine");
+      nine.innerHTML = `<table style="border: 1px solid red;"></table>`;
+      for (let i = 2; i <= 9; i++) {
+        // nine.innerHTML = `<table><tr></tr><br></table>`;
+        // nine.innerHTML += `<table><tr>${i}</tr></table>`;
+        nine.innerHTML += `
+          <br>
+            `;
+        for (let j = 1; j <= 9; j++) {
+          //   document.write(`<table><tr>${i}*${j}=${i * j}</tr></table>`);
+          //   nine.innerHTML += `<table><tr>${i}*${j}=${i * j}</tr></table>`;
+          nine.innerHTML += `
+            <td>${i} * ${j} = ${i * j}</td>
+            `;
+        }
+      }
+    </script>
+  </body>
+</html>
