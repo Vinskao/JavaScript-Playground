@@ -1,20 +1,40 @@
 ﻿<!DOCTYPE html>
 <html lang="zh-tw">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>02varScope.html</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-            //廣域(全域)變數
-    
-    
-            //函數宣告定義
-    
-    
-            //呼叫函數
+      //廣域(全域)變數
+      var a = 1;
 
+      //函數宣告定義
+      function ace() {
+        var a = 100;
+        console.log(this.a);
+        console.log(window.a);
+        console.log(a);
+      }
 
+      //呼叫函數
+
+      ace();
+
+      //====
+
+      function multiplier(factor) {
+        return (number) => number * factor;
+      }
+
+      let twice = multiplier(2);
+      console.log(twice(5));
+
+      var ttt4 = 1000;
+
+      let ttt5 = 20000;
+
+      console.log(ttt4 + ttt5);
     </script>
-</body>
+  </body>
 </html>
