@@ -32,6 +32,23 @@
       console.log("strObj.substr(5)=");
       console.log("strObj.substring(5,8)=");
       console.log("strObj.toUpperCase()=");
+
+      function containsChineseCharacters(inputString) {
+        for (let i = 0; i < inputString.length; i++) {
+          let ch = inputString.charAt(i);
+          if (ch >= "\u4e00" && ch <= "\u9fff") {
+            return true;
+          } else {
+            return false;
+          }
+        }
+      }
+      let str0 = "我我我我";
+      let str1 = new String("fefewfwefwefwfe");
+      let str2 = new String("我我我我");
+      console.log(containsChineseCharacters(str0));
+      console.log(containsChineseCharacters(str1));
+      console.log(containsChineseCharacters(str2));
     </script>
   </body>
 </html>

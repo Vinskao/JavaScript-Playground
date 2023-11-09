@@ -19,14 +19,26 @@
 
     <script>
       function checkPwd() {
-        let pCheck = document.getElementById("pwdCheck");
+        let pCheck = document.getElementById("name");
         let pCheckValue = pCheck.value;
+        let pCheckValueLength = pCheckValue.length;
         let sp = document.getElementById("sp");
-
+        let ch;
+        let flag1 = false;
+        let flag2 = false;
         if (pCheckValue == "") {
           sp.innerHTML = "must enter";
-        } else if (pCheckValue >= 6) {
+        } else if (pCheckValueLength >= 6) {
           sp.innerHTML = ">6";
+          for (let i = 0; i < pCheckValueLength; i++) {
+            ch = pCheckValue[i].toUpperCase();
+            if (ch >= "A" || ch <= "Z") {
+              sp.innerHTML = "";
+              flag1 = true;
+            } else if (!isNaN(parseInt(ch))) {
+              flag2 = true;
+            }
+          }
         } else {
           sp.innerHTML = "must greater than 6";
         }
