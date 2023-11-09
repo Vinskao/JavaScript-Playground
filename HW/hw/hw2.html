@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hw2</title>
+  </head>
+  <body>
+    <!-- 姓名<input type="text" class="type" value="123" id="name" />
+    <br /> -->
+    密碼<input type="password" class="type" id="name" />
+    <br />
+    <input type="button" id="pwdCheck" onclick="checkPwd()" value="check" />
+    <br />
+    <span id="sp"></span> <br />
+    <!-- 
+    手機<input type="text" class="type" value="123" id="phone" /> <br />
+    email<input type="text" class="type" value="123" id="email" /> -->
+
+    <script>
+      function checkPwd() {
+        let pCheck = document.getElementById("pwdCheck");
+        let pCheckValue = pCheck.value;
+        let sp = document.getElementById("sp");
+
+        if (pCheckValue == "") {
+          sp.innerHTML = "must enter";
+        } else if (pCheckValue >= 6) {
+          sp.innerHTML = ">6";
+        } else {
+          sp.innerHTML = "must greater than 6";
+        }
+      }
+    </script>
+  </body>
+</html>

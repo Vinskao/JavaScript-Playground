@@ -1,25 +1,37 @@
 <!DOCTYPE html>
 <html lang="zh-tw">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>01stringObject.html</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="info"></div>
     <script>
-        let str = "java script";  //字串變數        
-        //字串物件
+      let str = "java script"; //字串變數
+      let objstr = new String(["ha,hah,aah"]);
+      console.log(typeof objstr.charAt(5));
+      console.log(objstr.lastIndexOf("a"));
 
-        console.log("strObj.charAt(3)=");
-        console.log("strObj.charCodeAt(3)=");
-        console.log("strObj.indexOf('a')=");
-        console.log("strObj.lastIndexOf('a')=");
-        console.log("strObj.lastIndexOf('@')=");
-        console.log("strObj.substr(5,3)=");
-        console.log("strObj.substr(5)=");
-        console.log("strObj.substring(5,8)=");
-        console.log("strObj.split(' ')=");
-        console.log("strObj.toUpperCase()=");
+      //字串物件
+      console.log(typeof str);
+
+      console.log(typeof objstr);
+      console.log("strObj.charAt(3)=");
+      console.log("strObj.charCodeAt(3)=" + objstr.charCodeAt(3));
+
+      console.log(objstr.split(""));
+      console.log(objstr.split(","));
+      console.log(typeof objstr.split(","));
+
+      console.log("-----");
+
+      console.log("strObj.indexOf('a')=");
+      console.log("strObj.lastIndexOf('a')=");
+      console.log("strObj.lastIndexOf('@')=");
+      console.log("strObj.substr(5,3)=");
+      console.log("strObj.substr(5)=");
+      console.log("strObj.substring(5,8)=");
+      console.log("strObj.toUpperCase()=");
     </script>
-</body>
+  </body>
 </html>
