@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <title>02varScope.html</title>
+</head>
+
+<body>
+    <script>
+        //case 1
+        // //廣域(全域)變數
+        // var a = 100;
+
+        // //函數宣告定義
+        // function f() {
+        //     var a = 10;
+        //     //var a;
+        //     //a=10;
+        //     console.log(`function in a=${a}`);
+        //     console.log(`window.a=${window.a}`);
+        //     console.log(`this.a=${this.a}`);
+        // }
+        // //呼叫函數
+        // console.log(`function call before a=${a}`);
+        // f();
+        // console.log(`function call after a=${a}`);
+
+        // //case 2
+        // //廣域(全域)變數
+        // var a = 100;
+
+        // //函數宣告定義
+        // function f() {
+        //     a = 10;
+
+        //     console.log(`function in a=${a}`);
+        //     console.log(`window.a=${window.a}`);
+        //     console.log(`this.a=${this.a}`);
+        // }
+        // //呼叫函數
+        // console.log(`function call before a=${a}`);
+        // f();
+        // console.log(`function call after a=${a}`);
+
+        // //case 3
+        // //廣域(全域)變數
+        // var a = 100;
+
+        // //函數宣告定義
+        // function f() {
+        //     var a = 10;
+        //     for (let a = 1; a <= 3; a++) {
+        //         console.log(`block a=${a}`);
+        //     }
+        //     console.log(`function in a=${a}`);
+        //     console.log(`window.a=${window.a}`);
+
+        // }
+        // //呼叫函數
+        // console.log(`function call before a=${a}`);
+        // f();
+        // console.log(`function call after a=${a}`);
+
+        //case 4
+        //廣域(全域)變數
+        var a = 100;
+        let b = 200;
+
+
+        //函數宣告定義
+        function f() {
+            var a = 10;
+            for (let a = 1; a <= 3; a++) {
+                console.log(`block a=${a}`);
+            }
+            console.log(`function in a=${a}`);
+            console.log(`window.a=${window.a}`);
+
+        }
+        //呼叫函數
+        console.log(`function call before a=${a}`);
+        f();
+        console.log(`function call after a=${a}`);
+
+    </script>
+</body>
+
+</html>
