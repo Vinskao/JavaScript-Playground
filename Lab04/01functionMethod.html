@@ -52,6 +52,23 @@
         console.log(`b=${b}`);
         return a + b;
       }
+
+      function ttt() {
+        console.log("abc");
+      }
+      const ooo = ttt;
+      ooo();
+
+      (() => {
+        console.log("abcde");
+      })();
+
+      !(function (a, b) {
+        a = 3;
+        b = 4;
+        console.log(a + b);
+        return a + b;
+      })();
     </script>
   </body>
 </html>
