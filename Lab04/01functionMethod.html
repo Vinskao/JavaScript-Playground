@@ -1,50 +1,57 @@
 ﻿<!DOCTYPE html>
 <html lang="zh-tw">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>01functionMethod.html</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        //==========定義函數==================
-        //方法一函數宣告，定義帶參數的函數
+      //==========定義函數==================
+      //方法一函數宣告，定義帶參數的函數
 
+      function f1(s, v = 500) {
+        var t = s + v;
 
+        console.log(v);
 
+        return t;
+      }
 
-        //==========函數呼叫==================
-        //呼叫帶參數的函數
+      console.log(f1(100, 200));
 
+      //==========函數呼叫==================
+      //呼叫帶參數的函數
 
+      //JavaScript沒有規定function的參數及呼叫function時給予的參數數量必須要一致
+      //少掉的參數為undefined，而多的參數會被忽略
+      //預設參數值(ES6)
 
-        //JavaScript沒有規定function的參數及呼叫function時給予的參數數量必須要一致
-        //少掉的參數為undefined，而多的參數會被忽略
-        //預設參數值(ES6)
+      //==========定義函數==================
+      //方法二暱名函數
 
+      //==========定義函數==================
+      //方法三箭頭函數(arrow function)
 
-        
+      //函數沒有參數
 
-        //==========定義函數==================
-        //方法二暱名函數
+      //如果statement 只有一行，return 和 {} 可省略
 
+      //只有一個參數，()可省略
 
+      const f2 = (b) => {
+        return b + 3000;
+      };
+      console.log(f2(1000));
 
+      (function (g, y) {
+        console.log(g + y);
+      })(8, 9);
 
-        
-
-        //==========定義函數==================
-        //方法三箭頭函數(arrow function)
-
-
-        //函數沒有參數
-        
-        //如果statement 只有一行，return 和 {} 可省略
-
-
-        //只有一個參數，()可省略
-    
-    
-    
+      console.log(`fAdd1(10,20)=${fAdd1(10, 20)}`);
+      function fAdd1(a, b) {
+        console.log(`b=${b}`);
+        return a + b;
+      }
     </script>
-</body>
+  </body>
 </html>
