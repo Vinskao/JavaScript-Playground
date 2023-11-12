@@ -8,6 +8,7 @@
   <body>
     <!-- 姓名<input type="text" class="type" value="123" id="name" />
     <br /> -->
+
     密碼<input type="password" class="type" id="name" />
     <br />
     <input type="button" id="pwdCheck" onclick="checkPwd()" value="check" />
@@ -18,6 +19,7 @@
     email<input type="text" class="type" value="123" id="email" /> -->
 
     <script>
+      document.getElementById("name").addEventListener("blur", checkPwd);
       function checkPwd() {
         let pCheck = document.getElementById("name");
         let pCheckValue = pCheck.value;
@@ -27,17 +29,22 @@
         let flag1 = false;
         let flag2 = false;
         if (pCheckValue == "") {
-          sp.innerHTML = "must enter";
+          sp.innerHTML = '<img src="../../Lab07/Images/error.png" />must enter';
         } else if (pCheckValueLength >= 6) {
           sp.innerHTML = ">6";
           for (let i = 0; i < pCheckValueLength; i++) {
             ch = pCheckValue[i].toUpperCase();
-            if (ch >= "A" || ch <= "Z") {
-              sp.innerHTML = "";
+            if (ch >= "A" && ch <= "Z") {
               flag1 = true;
             } else if (!isNaN(parseInt(ch))) {
               flag2 = true;
             }
+          }
+          if (flag1 && flag2) {
+            sp.innerHTML = "correct";
+          } else {
+            sp.innerHTML =
+              '<img src="../../Lab07/Images/error.png" />incorrect';
           }
         } else {
           sp.innerHTML = "must greater than 6";

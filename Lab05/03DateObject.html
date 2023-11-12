@@ -1,25 +1,62 @@
 <!DOCTYPE html>
 <html lang="zh-tw">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>03DateObject.html</title>
-</head>
-<body>
+  </head>
+  <body>
+    <label>
+      <input type="text" class="date" id="date" placeholder="xxxx/xx/xx" />
+      <br />
+      <input type="button" id="dateCheck" onclick="checkDate()" value="check" />
+    </label>
+
+    <span id="sp"></span> <br />
+
     <script>
-        //建立日期物件語法 1
-        let d = new Date();
+      //建立日期物件語法 1
+      let d = new Date();
+      console.log(d);
+      //建立日期物件語法 2
+      d = new Date("2023-11-9");
+      console.log(d);
+      //建立日期物件語法 3
+      d = new Date("2023-11-09");
+      console.log(d);
+      d = new Date("2023-11-09T14:03:03");
+      console.log(d);
+      d = new Date("2023/11/31 14:3:3");
+      console.log(d);
+      let theYear = d.getFullYear() - 1911;
+      let theMonth = d.getMonth() + 1;
+      let theDate = d.getDate();
+      //當你使用 new Date(...) 創建 Date 物件時，每次都會創建一個新的實例。這些實例會保存在記憶體中，直到它們不再被參考。當它們不再被參考時，JavaScript 的垃圾回收機制會將其清除，釋放記憶體。
 
-        //建立日期物件語法 2
+      //只有最後一個 Date 物件 d 會存在於記憶體中。當你使用 d = new Date("2023-11-09"); 創建一個新的 Date 物件，這將將其指派給變數 d，覆蓋了之前的 Date 物件
 
-        //建立日期物件語法 3
+      // console.log(d);
+      d = new Date("2023/11/9 14:3:3");
+      console.log(d);
+      // console.log(`民國${theYear}年${theMonth}月${theDate}日`);
 
-        let theYear = d.getFullYear() - 1911;
-        let theMonth = d.getMonth() + 1;
-        let theDate = d.getDate();
-        // console.log(d);
-        // console.log(`民國${theYear}年${theMonth}月${theDate}日`);
+      let y = d.getFullYear();
+      console.log(y - 1911);
+      let x = d.getMonth();
+      console.log(x + 1);
+      let z = d.getDate();
+      console.log(z);
 
+      function checkDate() {
+        var da = document.getElementById("date").value;
+        let sp = document.getElementById("sp");
 
+        var dat = new Date(da);
+        if (!isNaN(dat)) {
+          sp.innerHTML = "correct";
+        } else {
+          sp.innerHTML = "incorrect";
+        }
+      }
     </script>
-</body>
+  </body>
 </html>
