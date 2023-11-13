@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    <meta charset="UTF-8" />
+    <title>03DateObject.html</title>
+  </head>
+  <body>
+    <label for="name">姓名：</label>
+    <input type="text" class="name" id="name" placeholder="請輸入中文名字" />
+    <br />
+    <label for="pwd">密碼：</label>
+    <input type="password" class="type" id="pwd" />
+    <br />
+
+    <label for="date">日期：</label>
+    <input type="text" class="date" id="date" placeholder="xxxx/xx/xx" />
+    <br />
+
+    <span id="pwdResult"></span> <br />
+    <span id="dateResult"></span> <br />
+    <span id="nameResult"></span> <br />
+
+    <script>
+      //名字檢查
+
+      let nameInput = document.getElementById("name");
+      nameInput.addEventListener("blur", checkName);
+
+      function checkName() {
+        let nameInput = document.getElementById("name").value;
+        let nameResult = document.getElementById("nameResult");
+
+        if (/^[\u4e00-\u9fa5]{2,3}$/.test(nameInput)) {
+          nameResult.innerHTML = "姓名Correct";
+        } else {
+          nameResult.innerHTML =
+            '<img src="../../Lab07/Images/error.png" />姓名格式error，必須是二或三個中文字';
+        }
+      }
+      //密码检查
+      let pwdInput = document.getElementById("pwd");
+      pwdInput.addEventListener("blur", checkPwd);
+      function checkPwd() {
+        let pwdInput = document.getElementById("pwd");
+        let pwdValue = pwdInput.value;
+        let pwdLength = pwdValue.length;
+        let pwdResult = document.getElementById("pwdResult");
+        let ch;
+        let flag1 = false;
+        let flag2 = false;
+        if (pwdValue == "") {
+          pwdResult.innerHTML =
+            '<img src="../../Lab07/Images/error.png" />必须输入密码';
+        } else if (pwdLength >= 6) {
+          pwdResult.innerHTML = ">6";
+          for (let i = 0; i < pwdLength; i++) {
+            ch = pwdValue[i].toUpperCase();
+            if (ch >= "A" && ch <= "Z") {
+              flag1 = true;
+            } else if (!isNaN(parseInt(ch))) {
+              flag2 = true;
+            }
+          }
+          if (flag1 && flag2) {
+            pwdResult.innerHTML = "密码正确";
+          } else {
+            pwdResult.innerHTML =
+              '<img src="../../Lab07/Images/error.png" />密码错误';
+          }
+        } else {
+          pwdResult.innerHTML = "密码必须大于6个字符";
+        }
+      }
+
+      //日期检查
+      let dateInput = document.getElementById("date");
+      dateInput.addEventListener("blur", checkDate);
+      function checkDate() {
+        let dateInput = document.getElementById("date").value;
+        let dateResult = document.getElementById("dateResult");
+
+        let dateParts = dateInput.split("/");
+        if (dateParts.length === 3) {
+          let year = parseInt(dateParts[0]);
+          let month = parseInt(dateParts[1]);
+          let day = parseInt(dateParts[2]);
+
+          let date = new Date(year, month - 1, day);
+
+          if (
+            date.getFullYear() === year &&
+            date.getMonth() === month - 1 &&
+            date.getDate() === day
+          ) {
+            dateResult.innerHTML = "日期正确";
+          } else {
+            dateResult.innerHTML =
+              '<img src="../../Lab07/Images/error.png" />无效日期';
+          }
+        } else {
+          dateResult.innerHTML =
+            '<img src="../../Lab07/Images/error.png" />日期格式错误';
+        }
+      }
+    </script>
+  </body>
+</html>
