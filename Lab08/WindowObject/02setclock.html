@@ -1,23 +1,39 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>02setclock.html</title>
-</head>
-<body> 
-    <img alt="" src="WinImages/0.gif" /><img alt="" src="WinImages/1.gif" />:<img alt="" src="WinImages/2.gif" /><img alt="" src="WinImages/3.gif" />
-    <!--
-    <img alt="" id="picH1" /><img alt="" id="picH2" />:<img alt="" id="picM1" /><img alt="" id="picM2" />:<img alt="" id="picS1" /><img alt="" id="picS2" />
-    -->
+  </head>
+  <body>
+    <!-- <img alt="" src="WinImages/0.gif" /><img
+      alt=""
+      src="WinImages/1.gif"
+    />:<img alt="" src="WinImages/2.gif" /><img alt="" src="WinImages/3.gif" /> -->
 
-    <script>        
+    <img alt="" id="picH1" /><img alt="" id="picH2" />:<img
+      alt=""
+      id="picM1"
+    /><img alt="" id="picM2" />:<img alt="" id="picS1" /><img
+      alt=""
+      id="picS2"
+    />
+
+    <script>
+      function setClock() {
         //建立日期
-
+        let d = new Date();
         //取得秒數，分割為兩位數
-
-
+        let s = d.getSeconds();
         //顯示圖片，對應秒數
+        let s1 = parseInt(s / 10);
+        let s2 = s % 10;
 
+        document.getElementById("picS1").src = "WinImages/" + s1 + ".gif";
+        document.getElementById("picS2").src = `WinImages/${s2}.gif`;
+      }
+
+      window.setInterval(setClock, 1000);
+      setClock(); //立即执行（调用）setClock 函数。它会在页面加载完成后立即执行一次 setClock 函数，以初始化页面上的时钟效果
     </script>
-</body>
+  </body>
 </html>
