@@ -1,55 +1,94 @@
 <!DOCTYPE html>
 <html lang="zh-tw">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>07JSON.html</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="div1"></div>
     <script>
-        //二維陣列
-        myDatas = [["apple", "banana", "grape"], ["pork", "beef"]];
-        console.log(myDatas[1][0]);  //pork
-        for (let i = 0, maxi = myDatas.length; i < maxi; i++) {
-            for (let j = 0, maxj = myDatas[i].length; j < maxj; j++) {
-                console.log(myDatas[i][j]);
-            }
+      //二維陣列
+      myDatas = [
+        ["apple", "banana", "grape"],
+        ["pork", "beef"],
+      ];
+      console.log(myDatas[1][0]); //pork
+      for (let i = 0, maxi = myDatas.length; i < maxi; i++) {
+        for (let j = 0, maxj = myDatas[i].length; j < maxj; j++) {
+          console.log(myDatas[i][j]);
         }
+      }
 
-        //array = [value,value,value]
-        let names = ["Tom", "Jack", "Mary"];
+      //array = [value,value,value]
+      let names = ["Tom", "Jack", "Mary"];
+      console.log(names[0]);
 
+      //object {property:value,property:value}
+      let obj = { name: "Paul", age: 20 };
+      //    alert(obj.name);
+      //    alert(obj.age)
+      console.log(obj.name);
 
-        //object {property:value,property:value}
-        let obj = { name: "Paul", age: 20 };
-        //    alert(obj.name);
-        //    alert(obj.age)
+      //JSON array + object
+      // let emps = [{},{},{}];
+      // let obj = {emps:[{},{},{}]}
 
-        //JSON array + object
-        // let emps = [{},{},{}];
-        // let obj = {emps:[{},{},{}]}
+      let emps = [
+        { name: "Jack", age: 20 },
+        { name: "Mary", age: 29 },
+        { name: "Steve", age: 24 },
+      ];
+      console.log(emps);
+      console.log(emps[0]);
+      console.log(emps[0].age);
 
-        let emps = [{ name: "Jack", age: 20 },
-                    { name: "Mary", age: 29 },
-                    { name: "Steve", age: 24 }];
+      //emps - array
+      //emps[1] - object
+      //emps[1].name - Mary
 
-        //emps - array
-        //emps[1] - object
-        //emps[1].name - Mary
-        
+      var data = {
+        emps: [
+          { name: "Tom", workYears: 3, salary: 45000 },
+          { name: "Jack", workYears: 5, salary: 55000 },
+          { name: "Mary", workYears: 7, salary: 65000 },
+        ],
+      };
+      console.log(data.emps[0].salary);
+      //   document.getElementById("div1");
+      document.write(
+        `<li>${data.emps[0].name} ${data.emps[0].workYears} ${data.emps[0].salary}</li>`
+      );
 
-        var data = {"emps":[
-                      {"name":"Tom","workYears":3,"salary":45000},
-                      {"name":"Jack","workYears":5,"salary":55000},
-                      {"name":"Mary","workYears":7,"salary":65000}
-                   ]};
+      //data - object
+      //data.emps - array
+      //data.emps[0] - object
+      //data.emps[0].name - Tom
 
-        //data - object       
-        //data.emps - array             
-        //data.emps[0] - object       
-        //data.emps[0].name - Tom       
+      for (let i = 0; i < data.emps.length; i++) {
+        let employee = data.emps[i];
+        document.write("<li>");
+        for (let prop in employee) {
+          document.write(`${employee[prop]} `);
+        }
+        document.write("</li>");
+      }
 
-        
+      for (emp of data.emps) {
+        document.write("<li>");
+        document.write(`${emp.name} ${emp.workYears} ${emp.salary}`);
+        document.write("</li>");
+      }
+      document.write(11111111111);
+      let str = "<ul>";
+      let div1 = document.getElementById("div1");
+      div1.innerHTML += str + 3;
+
+      for (emp of data.emps) {
+        str += `<li>${emp.name} ${emp.workYears} ${emp.salary}</li>`;
+      }
+      str += "</ul>";
+      div1.innerHTML += str + 3;
+      console.log(str);
     </script>
-</body>
+  </body>
 </html>

@@ -1,18 +1,43 @@
 <!DOCTYPE html>
 <html lang="zh-tw">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>04Object.html</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="myDiv"></div>
     <script>
-    
-    
+      function f1() {
+        return `${this.brand} - ${this["max speed"]}`;
+      }
 
-    //for..in
+      let f2 = () => {
+        console.log(this); //this = window
+        return `${car.brand} - ${car.color}`;
+      };
+      let car = {
+        brand: "tsla",
+        "max speed": 300,
+        color: "white",
+        dispf1: f1,
+        dispf2: () => {
+          return `${car.brand} - ${car["max speed"]}`;
+        },
+        dispf3: f2,
+      };
 
-    
-    </script>        
-</body>
+      //   console.log(car);
+      //   console.log(car.dispf1());
+      //   console.log(car.dispf2());
+      console.log(car.dispf3());
+
+      //for..in
+      let myDiv = document.getElementById("myDiv");
+      for (let prop in car) {
+        console.log(prop);
+        console.log(car[prop]);
+        myDiv.innerHTML += `<li>${prop} : ${car[prop]}</li>`;
+      }
+    </script>
+  </body>
 </html>

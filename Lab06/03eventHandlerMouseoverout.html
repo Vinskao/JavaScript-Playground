@@ -1,22 +1,22 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>03eventHandlerMouseoverout.html</title>
-</head>
-<body>
+  </head>
+  <body>
     <img id="idimg" src="Images/star.gif" />
     <script>
-        document.getElementById("idimg").addEventListener("mouseover",mouseover);  //事件繫結，滑鼠滑入
-        document.getElementById("idimg").addEventListener("mouseout",mouseout);    //事件繫結，滑鼠滑出
+      document.getElementById("idimg").addEventListener("mouseover", mouseover); //事件繫結，滑鼠滑入
+      document.getElementById("idimg").addEventListener("mouseout", mouseout); //事件繫結，滑鼠滑出
 
-        function mouseover() {
-            
-        }
+      function mouseover() {
+        document.getElementById("idimg").src = "Images/chngstar.gif";
+      }
 
-        function mouseout() {
-            
-        }
+      function mouseout() {
+        document.getElementById("idimg").src = "Images/star.gif";
+      }
     </script>
-</body>
+  </body>
 </html>
