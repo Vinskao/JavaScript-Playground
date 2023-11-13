@@ -1,24 +1,57 @@
 <!DOCTYPE html>
 <html lang="zh-tw">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>05ArrayObject.html</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        //Array 物件
+      //Array 物件
+      let balls = ["a", "b", "c", 999];
+      console.log(balls);
 
+      let myfoods = [
+        ["apple", "banana", "grape"],
+        ["pork", "beef"],
+      ];
 
-        
-        //let myfoods = [["apple", "banana", "grape"], ["pork", "beef"]];
-        // for (let i = 0, maxi = myfoods.length; i < maxi; i++) {
-        //     for (let j = 0, maxj = myfoods[i].length; j < maxj; j++) {
-        //         console.log(myfoods[i][j]);
-        //     }
-        // }
+      for (let value in myfoods) {
+        console.log(value);
+      }
+      for (let value of myfoods) {
+        console.log(value);
+      }
+      for (let myfood of myfoods) {
+        for (let value of myfood) {
+          console.log(value);
+        }
+      }
+      // for (let i = 0, maxi = myfoods.length; i < maxi; i++) {
+      //     for (let j = 0, maxj = myfoods[i].length; j < maxj; j++) {
+      //         console.log(myfoods[i][j]);
+      //     }
+      // }
 
-        //Array 方法
-        
+      //Array 方法
+
+      let arr = [1, 2, 3];
+      console.log(balls.concat(arr));
+      console.log(balls.join("-"));
+      console.log(balls.reverse());
+      balls.push("i1", "i2", "i3");
+      console.log(balls);
+      balls.pop();
+      console.log(balls);
+      console.log(balls.slice(1, 4));
+      console.log(balls);
+      balls.splice(0, 2, "do", "Rei", "Mi");
+      console.log(balls);
+      let num = [1, 2, 3, 47, 8, 9, 0, 532, 4, -3];
+      console.log(
+        num.sort(function (a, b) {
+          return a - b;
+        })
+      );
     </script>
-</body>
+  </body>
 </html>

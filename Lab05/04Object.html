@@ -32,6 +32,12 @@
       console.log(car.dispf3());
 
       //for..in
+      let myDiv = document.getElementById("myDiv");
+      for (let prop in car) {
+        console.log(prop);
+        console.log(car[prop]);
+        myDiv.innerHTML += `<li>${prop} : ${car[prop]}</li>`;
+      }
     </script>
   </body>
 </html>
