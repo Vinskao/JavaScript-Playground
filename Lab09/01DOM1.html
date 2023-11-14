@@ -19,22 +19,23 @@
         //nodeValue 讀取文字節點內容，得到的是文字內容
         //nodeType 讀取節點類型
         //*****************************************
-
+        //取得根元素 documentElement
+        let root = document.documentElement;  //HTML
         alert(document.nodeType);  //9
         alert(document.nodeName);  //#document
         alert(document.nodeValue);  //null
 
-        //取得根元素 documentElement
-        let root = document.documentElement;  //HTML
-
-
         let thebody = root.childNodes[1];  //BODY
-
-
-        let theNode = root.childNodes[1].childNodes[3].childNodes[3];  //LI
+        alert(thebody.childNodes[1].firstChild.nodeValue)
+        let theNode = root.childNodes[1].childNodes[3].childNodes[3];  
+        
+        console.log(theNode)
+        //childNodes[1] = body ，  childNodes[3] = 往後算4個
+        
+        //LI
         //alert(root.childNodes[1].childNodes[3].nodeName);
-        //alert(theNode.nodeName);
-        //alert(theNode.firstChild.nodeValue);  //bbbbb
+        alert(theNode.nodeName);
+        alert(theNode.firstChild.nodeValue);  //bbbbb
         //alert(theNode.previousSibling.previousSibling.firstChild.nodeValue);  //aaaaa
         //alert(theNode.nextSibling.nextSibling.firstChild.nodeValue);  //ccccc
 
@@ -47,6 +48,11 @@
             //alert(lis.item(i).firstChild.nodeValue);
             //alert(lis[i].firstChild.nodeValue);
 
+        }
+
+        for(let li of lis){
+            console.log(li.firstChild.nodeValue)
+            console.log(li.innerHTML)
         }
     </script>
 </body>

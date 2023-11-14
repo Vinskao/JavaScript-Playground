@@ -1,58 +1,60 @@
 <!DOCTYPE html>
 <html lang="zh-tw">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>09document.html</title>
-
-</head>
-<body>
+  </head>
+  <body>
     <form>
-        <label>First Name:</label><input type="text" name="fname" value="Donald"><br>
-        <label>Last Name:</label><input type="text" name="lname" value="Duck"><br>
-        <img alt="101.gif" src="images/101.gif">
-        <img alt="102.gif" src="images/102.gif"><br>
-        <p>
-            <a href="https://www.ispan.com.tw">iSpan</a><br>
-            <a href="http://www.google.com">google</a>
-        </p>
+      <label>First Name:</label
+      ><input type="text" name="fname" value="Donald" /><br />
+      <label>Last Name:</label
+      ><input type="text" name="lname" value="Duck" /><br />
+      <img alt="101.gif" src="images/101.gif" />
+      <img alt="102.gif" src="images/102.gif" /><br />
+      <p>
+        <a href="https://www.ispan.com.tw">iSpan</a><br />
+        <a href="http://www.google.com">google</a>
+      </p>
     </form>
-    <hr>
-    <input type="button" id="idURL" value="URL">
-    <input type="button" id="idforms" value="forms">
-    <input type="button" id="idimages" value="images">
-    <input type="button" id="idlinks" value="links">
-    <input type="button" id="idtitle" value="title">
-    <p id="demo"></p> 
-    
+    <hr />
+    <input type="button" id="idURL" value="URL" />
+    <input type="button" id="idforms" value="forms" />
+    <input type="button" id="idimages" value="images" />
+    <input type="button" id="idlinks" value="links" />
+    <input type="button" id="idtitle" value="title" />
+    <p id="demo"></p>
+
     <script>
-        document.getElementById("idURL").addEventListener("click",urlF);
-        document.getElementById("idforms").addEventListener("click",formsF);
-        document.getElementById("idimages").addEventListener("click",imagesF);
-        document.getElementById("idlinks").addEventListener("click",linksF);
-        document.getElementById("idtitle").addEventListener("click",titleF);
-        function urlF() {
-            let url = document.URL;
-            document.getElementById("demo").innerHTML = url;
-        }
+      document.getElementById("idURL").addEventListener("click", urlF);
+      document.getElementById("idforms").addEventListener("click", formsF);
+      document.getElementById("idimages").addEventListener("click", imagesF);
+      document.getElementById("idlinks").addEventListener("click", linksF);
+      document.getElementById("idtitle").addEventListener("click", titleF);
+      function urlF() {
+        let url = document.URL;
+        document.getElementById("demo").innerHTML = url;
+      }
 
-        function formsF() {
-            let forms = document.forms.length;
-            document.getElementById("demo").innerHTML = forms;
-        }
+      function formsF() {
+        let forms = document.forms.length; //查看有幾個form
+        document.getElementById("demo").innerHTML = forms;
+      }
+      //查找页面中的所有 <form> 元素的集合（使用 document.forms），然后使用 length 属性来获取集合中 <form> 元素的数量
 
-        function imagesF() {
-            let images = document.images.length;
-            document.getElementById("demo").innerHTML = images;
-        }
+      function imagesF() {
+        let images = document.images.length;
+        document.getElementById("demo").innerHTML = images;
+      }
 
-        function linksF() {
-            let links = document.links.length;
-            document.getElementById("demo").innerHTML = links;
-        }
+      function linksF() {
+        let links = document.links.length;
+        document.getElementById("demo").innerHTML = links;
+      }
 
-        function titleF() {
-            document.title="iSpan";        
-        }
-    </script> 
-</body>
+      function titleF() {
+        document.title = "大狗子";
+      }
+    </script>
+  </body>
 </html>

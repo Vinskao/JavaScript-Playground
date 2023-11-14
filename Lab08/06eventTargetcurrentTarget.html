@@ -1,35 +1,54 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>06eventTargetcurrentTarget.html</title>
-
-</head>
-<body>
+  </head>
+  <body>
     <p id="idp">
-       <input type="button" id="idbut" value="button" />            
+      <input type="button" id="idbut" value="button" />
     </p>
 
     <script>
-        //==============================================================
-        //階層式標籤，事件流程分三階段，
-        //事件捕獲(capture)階段==>處理目標階段==>事件氣泡(bubbling)階段
-        //==============================================================
-        document.getElementById("idp").addEventListener("click",clickP); //事件繫結，事件氣泡(bubbling)
-        document.getElementById("idbut").addEventListener("click",clickBut);
-        
+      //==============================================================
+      //階層式標籤，事件流程分三階段，
+      //事件捕獲(capture)階段==>處理目標階段==>事件氣泡(bubbling)階段
+      //==============================================================
+      document.getElementById("idp").addEventListener("click", clickP); //事件繫結，事件氣泡(bubbling)
+      document.getElementById("idbut").addEventListener("click", clickBut);
 
-        //target：回傳觸發事件的元素
-        //currentTarget：回傳事件正在處理時所在的元素
-        //[object class] 一個物件的類別(class)屬性是個字串，提供關於該物件的種類的資訊
-        function clickP() {
-            alert("p");            
-        }
+      //target：回傳觸發事件的元素
+      //currentTarget：回傳事件正在處理時所在的元素
+      //[object class] 一個物件的類別(class)屬性是個字串，提供關於該物件的種類的資訊
+      function clickP() {
+        // alert("p");
+        alert(
+          "p target=" +
+            event.target.id +
+            "\ninput target=" +
+            event.currentTarget.id +
+            "\nthis=" +
+            this.id //回傳input target=idp
+        ); //回傳字串
+        //event.target::回傳 p target=[object HTMLInputElement]
+        //event.target.id::回傳 p target=idbut
+      }
 
-        function clickBut() {
-            alert("input"); 
+      function clickBut() {
+        alert(
+          "input" +
+            event.target.id +
+            "\ninput target=" +
+            event.currentTarget.id +
+            "\nthis=" +
+            this.id
+        );
+        console.log(event.target);
+        // console.log(event.target.id);
+        //回傳idbut
+      } // 點擊button  先alert input 再alert p 後 console.log
 
-        }
+      //点击按钮会触发 clickBut 和 clickP 两个事件处理程序。事件冒泡是事件传播的机制，当你在按钮上点击时，事件首先触发按钮的事件处理程序 clickBut，然后继续冒泡到包含按钮的段落元素 <p>，触发段落的事件处理程序 clickP。所以你会看到两个不同的对话框弹出
     </script>
-</body>
+  </body>
 </html>

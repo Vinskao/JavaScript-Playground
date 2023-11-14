@@ -1,18 +1,25 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>08eventObjectDemo.html</title>
-</head>
-<body>
-    this is test line<br/>	
-    <img src="WindowObject/WinImages/101.gif" />
-	<a href="http://www.google.com" onclick="event.preventDefault();">google</a>
+  </head>
+  <body>
+    this is test line<br />
+    <img src="WindowObject/WinImages/101.gif" id="idImg" />
+    <a href="http://www.google.com" onclick="event.preventDefault();">google</a>
 
     <script>
-        //在文件的contextmenu事件，取消預設的動作(preventDefault)
-        
-       
+      //在文件的contextmenu事件，取消預設的動作(preventDefault)
+      document.addEventListener("contextmenu", () => {
+        // event.preventDefault();
+      });
+
+      document
+        .getElementById("idImg")
+        .addEventListener("contextmenu", function () {
+          event.preventDefault();
+        });
     </script>
-</body>
+  </body>
 </html>

@@ -1,41 +1,55 @@
 <!DOCTYPE html>
 <html lang="zh-tw">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>10querySelector.html</title>
     <style>
-        table,td{
-            border:1px solid blue;
-            width:300px
-            }
-    </style>    
-</head>
-<body>
+      table,
+      td {
+        border: 1px solid blue;
+        width: 300px;
+      }
+    </style>
+  </head>
+  <body>
     <table>
-        <tr>
-            <td id="td1">A1</td>
-            <td class="myclass">B2</td>
-            <td>C3</td>
-        </tr>
-        <tr>
-            <td>D4</td>
-            <td class="myclass">E5</td>
-            <td>F6</td>
-        </tr>
+      <tr>
+        <td id="td1">A1</td>
+        <td class="myclass">B2</td>
+        <td>C3</td>
+      </tr>
+      <tr>
+        <td>D4</td>
+        <td class="myclass">E5</td>
+        <td>F6</td>
+      </tr>
     </table>
-    <hr>
+    <hr />
     <div id="myDiv"></div>
-    
+
     <script>
-        //使用document.getElementById()
-        
+      //使用document.getElementById()
 
-        //使用document.querySelector()
-       
+      //使用document.querySelector()
+      let qs1 = document.querySelector("td");
+      console.log(qs1.textContent);
+      let qs2 = document.querySelector(".myclass");
+      console.log(qs2);
+      let qs3 = document.querySelector("#td1");
+      console.log(qs3);
+      console.log(qs3.innerHTML);
+      console.log(qs3.textContent);
 
+      //使用document.querySelectorAll()
 
-        //使用document.querySelectorAll()
-        
+      let qs1a = document.querySelectorAll("td");
+      let qs2a = document.querySelectorAll(".myclass");
+      console.log(qs2a);
+      let qs3a = document.querySelectorAll("#td1");
+      console.log(qs1a);
+      console.log(qs3a);
+      console.log(qs3a.item(0).innerHTML);
+      //item(0): 获取第一个 <li> 元素
     </script>
-</body>
+  </body>
 </html>
