@@ -7,6 +7,8 @@
   <body>
     <select id="idSelectYear"></select>
     <select id="idSelectMonth"></select>
+    <select id="idSelectDay"></select>
+
     <script>
       document
         .getElementById("idSelectYear")
@@ -14,12 +16,18 @@
       document
         .getElementById("idSelectMonth")
         .addEventListener("change", addDay);
+      document.getElementById("idSelectDay").addEventListener("change", addDay);
+
+      document.getElementById("idSelectDay").addEventListener("change", addDay);
       // 找該年的第一天是星期幾，後順序排列li or td
       function addDay() {
         console.log(document.getElementById("idSelectYear").value);
         console.log(document.getElementById("idSelectMonth").value);
+        console.log(document.getElementById("idSelectDay").value);
       }
+
       let docFrag = document.createDocumentFragment();
+      //當您需要執行多個操作來構建或修改 DOM 節點時，將這些操作放在 DocumentFragment 中，最後再將整個 DocumentFragment 插入到文檔中。這樣可以減少重排（reflow）和重繪（repaint）的次數
 
       for (let i = 2010; i <= 2030; i++) {
         //新增年
@@ -45,6 +53,19 @@
         docFrag.appendChild(opt);
       }
       document.getElementById("idSelectMonth").appendChild(docFrag);
+
+      docFrag = document.createDocumentFragment();
+      for (let i = 1; i <= 12; i++) {
+        //新增月
+        let opt = document.createElement("option");
+        opt.setAttribute("value", i);
+        let optTxt = document.createTextNode(i);
+        opt.appendChild(optTxt);
+        //opt.value = i;
+        //opt.innerHTML = i;
+        docFrag.appendChild(opt);
+      }
+      document.getElementById("idSelectDay").appendChild(docFrag);
 
       let d = new Date(2023, 10, 14);
     </script>
