@@ -14,7 +14,7 @@
       document
         .getElementById("idSelectMonth")
         .addEventListener("change", addDay);
-
+      // 找該年的第一天是星期幾，後順序排列li or td
       function addDay() {
         console.log(document.getElementById("idSelectYear").value);
         console.log(document.getElementById("idSelectMonth").value);
