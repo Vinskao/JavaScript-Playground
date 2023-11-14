@@ -1,0 +1,82 @@
+13-Nov-2023 17:25:53.769 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.65
+13-Nov-2023 17:25:53.784 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Jul 14 2022 12:28:53 UTC
+13-Nov-2023 17:25:53.784 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.65.0
+13-Nov-2023 17:25:53.784 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+13-Nov-2023 17:25:53.784 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+13-Nov-2023 17:25:53.784 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+13-Nov-2023 17:25:53.784 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\zulu-jdk17
+13-Nov-2023 17:25:53.784 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           17.0.9+8-LTS
+13-Nov-2023 17:25:53.784 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Azul Systems, Inc.
+13-Nov-2023 17:25:53.784 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\tomcat\apache-tomcat-9.0.65\apache-tomcat-9.0.65
+13-Nov-2023 17:25:53.784 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\tomcat\apache-tomcat-9.0.65\apache-tomcat-9.0.65
+13-Nov-2023 17:25:53.813 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+13-Nov-2023 17:25:53.813 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+13-Nov-2023 17:25:53.813 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+13-Nov-2023 17:25:53.813 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+13-Nov-2023 17:25:53.813 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+13-Nov-2023 17:25:53.813 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\tomcat\apache-tomcat-9.0.65\apache-tomcat-9.0.65\conf\logging.properties
+13-Nov-2023 17:25:53.813 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+13-Nov-2023 17:25:53.813 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+13-Nov-2023 17:25:53.813 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+13-Nov-2023 17:25:53.813 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+13-Nov-2023 17:25:53.813 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\tomcat\apache-tomcat-9.0.65\apache-tomcat-9.0.65
+13-Nov-2023 17:25:53.813 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\tomcat\apache-tomcat-9.0.65\apache-tomcat-9.0.65
+13-Nov-2023 17:25:53.813 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\tomcat\apache-tomcat-9.0.65\apache-tomcat-9.0.65\temp
+13-Nov-2023 17:25:53.813 資訊 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [C:\zulu-jdk17\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\Azure Data Studio\bin;C:\zulu-jdk17\bin;C:\Users\User\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\Azure Data Studio\bin;C:\Users\User\AppData\Local\Programs\Microsoft VS Code\bin;.]
+13-Nov-2023 17:25:53.953 資訊 [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+13-Nov-2023 17:25:53.984 資訊 [main] org.apache.catalina.startup.Catalina.load Server initialization in [338] milliseconds
+13-Nov-2023 17:25:54.016 資訊 [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+13-Nov-2023 17:25:54.016 資訊 [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.65]
+13-Nov-2023 17:25:54.031 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\tomcat\apache-tomcat-9.0.65\apache-tomcat-9.0.65\webapps\docs]
+13-Nov-2023 17:25:54.219 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\tomcat\apache-tomcat-9.0.65\apache-tomcat-9.0.65\webapps\docs] has finished in [188] ms
+13-Nov-2023 17:25:54.219 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\tomcat\apache-tomcat-9.0.65\apache-tomcat-9.0.65\webapps\examples]
+13-Nov-2023 17:25:54.422 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\tomcat\apache-tomcat-9.0.65\apache-tomcat-9.0.65\webapps\examples] has finished in [203] ms
+13-Nov-2023 17:25:54.422 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\tomcat\apache-tomcat-9.0.65\apache-tomcat-9.0.65\webapps\host-manager]
+13-Nov-2023 17:25:54.438 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\tomcat\apache-tomcat-9.0.65\apache-tomcat-9.0.65\webapps\host-manager] has finished in [16] ms
+13-Nov-2023 17:25:54.438 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\tomcat\apache-tomcat-9.0.65\apache-tomcat-9.0.65\webapps\manager]
+13-Nov-2023 17:25:54.469 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\tomcat\apache-tomcat-9.0.65\apache-tomcat-9.0.65\webapps\manager] has finished in [31] ms
+13-Nov-2023 17:25:54.469 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\tomcat\apache-tomcat-9.0.65\apache-tomcat-9.0.65\webapps\ROOT]
+13-Nov-2023 17:25:54.469 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\tomcat\apache-tomcat-9.0.65\apache-tomcat-9.0.65\webapps\ROOT] has finished in [0] ms
+13-Nov-2023 17:25:54.484 資訊 [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+13-Nov-2023 17:25:54.500 資訊 [main] org.apache.catalina.startup.Catalina.start Server startup in [513] milliseconds
+13-Nov-2023 17:31:53.422 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.65
+13-Nov-2023 17:31:53.433 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Jul 14 2022 12:28:53 UTC
+13-Nov-2023 17:31:53.433 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.65.0
+13-Nov-2023 17:31:53.433 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+13-Nov-2023 17:31:53.433 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+13-Nov-2023 17:31:53.433 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+13-Nov-2023 17:31:53.433 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\zulu-jdk17
+13-Nov-2023 17:31:53.433 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           17.0.9+8-LTS
+13-Nov-2023 17:31:53.433 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Azul Systems, Inc.
+13-Nov-2023 17:31:53.433 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\tomcat\apache-tomcat-9.0.65\apache-tomcat-9.0.65
+13-Nov-2023 17:31:53.433 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\tomcat\apache-tomcat-9.0.65\apache-tomcat-9.0.65
+13-Nov-2023 17:31:53.438 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+13-Nov-2023 17:31:53.438 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+13-Nov-2023 17:31:53.438 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+13-Nov-2023 17:31:53.438 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+13-Nov-2023 17:31:53.438 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+13-Nov-2023 17:31:53.438 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\tomcat\apache-tomcat-9.0.65\apache-tomcat-9.0.65\conf\logging.properties
+13-Nov-2023 17:31:53.438 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+13-Nov-2023 17:31:53.438 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+13-Nov-2023 17:31:53.438 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+13-Nov-2023 17:31:53.438 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+13-Nov-2023 17:31:53.438 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\tomcat\apache-tomcat-9.0.65\apache-tomcat-9.0.65
+13-Nov-2023 17:31:53.454 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\tomcat\apache-tomcat-9.0.65\apache-tomcat-9.0.65
+13-Nov-2023 17:31:53.454 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\tomcat\apache-tomcat-9.0.65\apache-tomcat-9.0.65\temp
+13-Nov-2023 17:31:53.470 資訊 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [C:\zulu-jdk17\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\Azure Data Studio\bin;C:\zulu-jdk17\bin;C:\Users\User\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\Azure Data Studio\bin;C:\Users\User\AppData\Local\Programs\Microsoft VS Code\bin;.]
+13-Nov-2023 17:31:53.582 資訊 [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+13-Nov-2023 17:31:53.582 資訊 [main] org.apache.catalina.startup.Catalina.load Server initialization in [263] milliseconds
+13-Nov-2023 17:31:53.613 資訊 [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+13-Nov-2023 17:31:53.613 資訊 [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.65]
+13-Nov-2023 17:31:53.613 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\tomcat\apache-tomcat-9.0.65\apache-tomcat-9.0.65\webapps\docs]
+13-Nov-2023 17:31:53.754 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\tomcat\apache-tomcat-9.0.65\apache-tomcat-9.0.65\webapps\docs] has finished in [141] ms
+13-Nov-2023 17:31:53.754 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\tomcat\apache-tomcat-9.0.65\apache-tomcat-9.0.65\webapps\examples]
+13-Nov-2023 17:31:53.926 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\tomcat\apache-tomcat-9.0.65\apache-tomcat-9.0.65\webapps\examples] has finished in [172] ms
+13-Nov-2023 17:31:53.926 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\tomcat\apache-tomcat-9.0.65\apache-tomcat-9.0.65\webapps\host-manager]
+13-Nov-2023 17:31:53.941 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\tomcat\apache-tomcat-9.0.65\apache-tomcat-9.0.65\webapps\host-manager] has finished in [15] ms
+13-Nov-2023 17:31:53.941 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\tomcat\apache-tomcat-9.0.65\apache-tomcat-9.0.65\webapps\manager]
+13-Nov-2023 17:31:53.957 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\tomcat\apache-tomcat-9.0.65\apache-tomcat-9.0.65\webapps\manager] has finished in [16] ms
+13-Nov-2023 17:31:53.957 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\tomcat\apache-tomcat-9.0.65\apache-tomcat-9.0.65\webapps\ROOT]
+13-Nov-2023 17:31:53.973 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\tomcat\apache-tomcat-9.0.65\apache-tomcat-9.0.65\webapps\ROOT] has finished in [16] ms
+13-Nov-2023 17:31:53.973 資訊 [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+13-Nov-2023 17:31:54.004 資訊 [main] org.apache.catalina.startup.Catalina.start Server startup in [412] milliseconds

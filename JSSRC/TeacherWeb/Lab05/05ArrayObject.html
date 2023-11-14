@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <title>05ArrayObject.html</title>
+</head>
+
+<body>
+    <script>
+        //Array 物件
+        let balls = ["baseball", "basketball", "tennis", 345];
+        // console.log(balls);
+
+
+        // for (let value of balls) {
+        //     console.log(value);
+        // }
+
+
+
+
+        let myfoods = [["apple", "banana", "grape"], ["pork", "beef"]];
+        // for (let i = 0, maxi = myfoods.length; i < maxi; i++) {
+        //     for (let j = 0, maxj = myfoods[i].length; j < maxj; j++) {
+        //         console.log(myfoods[i][j]);
+        //     }
+        // }
+
+        // for (let myfood of myfoods) {
+        //     console.log(myfood);
+        //     for (let value of myfood) {
+        //         console.log(value);
+        //     }
+        // }
+
+        //Array 方法
+        let ary = [1, 2, 3];
+        console.log(balls.concat(ary));
+        console.log(balls.join("-"));
+        console.log(balls.reverse());
+        balls.push("itemA", "itemB", "itemC");
+        console.log(balls);
+        // console.log(balls.push("itemA", "itemB", "itemC"))
+        balls.pop();
+        console.log(balls);  //6
+        console.log(balls.slice(1, 4));
+        console.log(balls);  //6
+        balls.splice(1, 2, "item1", 9, "item3");
+        console.log(balls);
+    </script>
+</body>
+
+</html>

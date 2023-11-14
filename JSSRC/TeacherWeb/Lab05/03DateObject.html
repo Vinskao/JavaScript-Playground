@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <title>03DateObject.html</title>
+</head>
+
+<body>
+    <label>Date:</label>
+    <input type="date">
+    <input type="text">
+
+    <script>
+        //建立日期物件語法 1
+        let d = new Date();
+        console.log(d);
+
+        //建立日期物件語法 2
+        d = new Date("2023-11-9");
+        console.log(d);
+
+        d = new Date("2023-11-09");
+        console.log(d);
+
+        d = new Date("2023-11-9T14:43:30");  //Invalid Date
+        console.log(d);
+
+        d = new Date("2023-11-09T14:43:30");  //Invalid Date
+        console.log(d);
+
+        d = new Date("2023/11/9 2:44:3 am");
+        console.log(d);
+        console.log("=============");
+        d = new Date("2023/11/31");
+        console.log(d);  //2023/12/1
+        d = new Date("2023/11/32");
+        console.log(d);    //Invalid Date
+
+
+        //建立日期物件語法 3
+        d = new Date(2023, 10, 9);
+        console.log(d);
+        d = new Date(2023, 10, 31);
+        console.log(d);   //2023/12/1
+        d = new Date(2023, 10, 32);
+        console.log(d);   //2023/12/2
+
+        d = new Date();
+        let theYear = d.getFullYear() - 1911;
+        let theMonth = d.getMonth() + 1;
+        let theDate = d.getDate();
+        // console.log(d);
+        console.log(`民國${theYear}年${theMonth}月${theDate}日`);
+
+
+    </script>
+</body>
+
+</html>

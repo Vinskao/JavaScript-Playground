@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>12formObject.html</title>
+</head>
+<body>
+    <form action="http://192.168.25.112:8080/get.jsp" method="get">
+			<label>name:</label><input type="text" name="txtName" value="abc" /><span id="idsp"></span><br/>
+            <input type="checkbox" name="hobby" checked="checked" value="reading"/>
+            <label>reading</label>
+            <input type="checkbox" name="hobby" value="game"/>
+            <label>game</label>
+            <input type="checkbox" name="hobby" value="sleep"/>
+            <label>sleep</label>
+			<br/>
+            <input type="submit" value="送出" />	
+            <input id="idbutton" type="button" value="check" />
+            <input id="idreset" type="button" value="reset" />
+			<input id="idsubmit" type="button" value="submit" />
+    </form>
+    
+    <script>
+        document.querySelector("#idbutton").addEventListener("click",checkf);//事件繫結
+        document.querySelector("#idreset").addEventListener("click",resetf);
+        document.querySelector("#idsubmit").addEventListener("click",submitf);
+
+        function checkf() {
+           console.log(document.forms.length);  //1  <form>元素集合,有幾個 <form>元素
+            console.log(document.forms[0].elements);  //8 array like object  第1個form 有幾個欄位
+            console.log(document.forms[0].elements.length);  //第1個form 有幾個欄位數
+            console.log(document.forms[0].length);  //8 第1個form 有幾個欄位數
+        }
+
+        function resetf() {
+            document.forms[0].reset();
+        }
+
+        function submitf() {
+            let theName=document.getElementsByName("txtName")[0].value;
+            if(theName=="")
+                document.getElementById("idsp").innerHTML="you must enter";
+            else
+                document.forms[0].submit();
+        }
+    </script>
+</body>
+</html>

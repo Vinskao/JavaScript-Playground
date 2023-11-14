@@ -1,0 +1,316 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>shopping_cartNew.html</title>
+	<link rel="stylesheet" href="styles/rwd.css">
+
+    
+	</head>
+
+	<body>
+		<div id="allpage">
+			<header>
+				<img class="logo-img" src="image/logo.png" title="logo" alt="logo">
+				<nav class="menu transition"> 
+					<div class="menubar" >
+							<div class="bar bar1 transition"></div>
+							<div class="bar bar2 transition"></div>
+							<div class="bar bar3 transition"></div>
+					</div>               
+					<ul class="transition">
+						<li><a class="transition" href="">Home</a></li>
+						<li><a class="transition" href="">Shop</a></li>
+						<li><a class="transition" href="">Gallery</a></li>
+						<li><a class="transition" href="">About</a></li>
+					</ul>
+					
+					
+				</nav>            
+			</header>
+			<div id="content">
+				<aside class="aside">
+					<section class="section3">
+							<h2><a href="https://zh.m.wikipedia.org/zh-tw/JavaScript">JavaScript</a></h2>                           
+							<p>JavaScript（通常縮寫為JS）是一種進階的、直譯的程式語言。JavaScript是一門基於原型、頭等函式的語言。它提供語法來操控文字、陣列、日期以及正規表示式等。它已經由ECMA（歐洲電腦製造商協會）透過ECMAScript實作語言的標準化。它被世界上的絕大多數網站所使用，也被世界主流瀏覽器（Chrome、IE、Firefox、Safari、Opera）支援。</p>
+					</section>
+				</aside>
+				<article class="article">
+					<section class="section">
+						<!-- <div> -->
+						
+							<table id="table1" >   
+								<tbody id="tbody1"></tbody>
+							</table>
+						<!-- </div>	 -->
+					</section> 
+					<section class="section2">
+						<!-- <div> -->
+							<table id="table2" >   
+								<tbody id="tbody2">
+									<th style="width:50px;">序號</th>
+									<th >書籍圖片</th>
+									<th style="width:250px;">書籍名稱</th>
+									<th>單價</th>
+									<th style="width:100px;">數量</th>
+								</tbody>
+							</table>
+						   
+							<div>
+								<br>
+								<hr style="width:370px;color:gray;"/>
+								<span id="idtotal" style="float:right" value="123">小計:0元</span>
+							</div>
+						<!-- </div> -->
+					</section>                
+				</article>
+				
+			</div>  <!--end content-->
+			<footer>
+					<p>2022 All Rights Reserved Quality Art Technology CO. </p>
+			</footer>
+		</div>  <!--end allpage-->
+		
+		
+		<script>
+		    let shopping_list = 
+			[["KT1001", "新一代 JavaScript 程式設計精解", 580, "image/JS1.webp"],
+			["KT1002", "JavaScript 精選16堂課：網頁程式設計實作", 550, "image/JS2.webp"],
+			["KT1003", "jQuery 最強圖解實戰講座", 450, "image/JQ1.jpg"],
+			["KT1004", "jQuery 實戰手冊, 3/e", 580, "image/JQ2.jpg"],
+			["KT1005", "最完整跨平台網頁設計：HTML + CSS", 1000, "image/HTML1.webp"],
+			["KT1006", "HTML / CSS 網頁設計實務 22堂課：一學就會！", 420, "image/HTML2.webp"],
+			["KT1007", "Visual C# 全面攻略", 620, "image/CSharp.webp"],
+			["KT1008", "Java SE 14 技術手冊", 680, "image/JAVA.webp"]]
+		    
+			//inital product
+			var theTable = document.getElementById("table1");
+			theTable.style.display = "block";
+			var theTbody = document.getElementById("tbody1");
+
+			for (let i = 0; i < shopping_list.length; i++) {
+				if (i % 3 == 0) {
+					var row = document.createElement("tr");
+				}
+
+				var cellImage = document.createElement("td");
+				var txtImage = document.createElement("img");
+				txtImage.setAttribute("src", shopping_list[i][3]);
+				txtImage.setAttribute("id", shopping_list[i][0]);
+				var pid=shopping_list[i][0];
+				txtImage.setAttribute("onclick","shoppingf('"+pid+"')");
+				txtImage.style.width="120px";
+				txtImage.style.height="164px";
+				txtImage.style.cursor="pointer";
+				cellImage.appendChild(txtImage);
+
+
+				var cellBr = document.createElement("br");
+				var txtName = document.createTextNode(shopping_list[i][1]);
+				cellImage.appendChild(cellBr);
+				cellImage.appendChild(txtName);
+
+
+				var txtPriceName = document.createTextNode("定價 : ");
+				var txtPrice = document.createTextNode(shopping_list[i][2]);
+				cellBr = document.createElement("br");
+				cellImage.appendChild(cellBr);
+				cellImage.appendChild(txtPriceName);
+				cellImage.appendChild(txtPrice);
+
+				row.appendChild(cellImage);
+
+				theTbody.appendChild(row);
+			}  
+			
+			var no = 1;
+		    var subtotal = 0;
+		    var hasIDTotal = 0;
+			
+			//localStorage 是否有資料
+			if(localStorage.length!=0){
+				console.log(localStorage);
+				theTbody = document.getElementById("tbody2");
+				// var row = document.createElement("tr");
+
+				for(let i=0;i<localStorage.length;i++){
+					console.log(localStorage.key(i));
+					var key=localStorage.key(i)
+					
+					for (let j = 0; j < shopping_list.length; j++) {
+						// console.log(shopping_list[j][0])
+						if(shopping_list[j][0]==key){
+							// console.log(key);
+							var row = document.createElement("tr");
+							var cellID = document.createElement("td");
+							var txtID = document.createTextNode(no++);
+							cellID.appendChild(txtID);
+
+							var cellName = document.createElement("td");
+							var txtName = document.createTextNode(shopping_list[j][1]);
+							cellName.appendChild(txtName);
+
+							var cellPrice = document.createElement("td");
+							var txtPrice = document.createTextNode(shopping_list[j][2]);
+							cellPrice.appendChild(txtPrice);
+
+							var cellImage = document.createElement("td");
+							var eleImg = document.createElement("img");  //<img>
+							eleImg.setAttribute("src", shopping_list[j][3]);     //<img src=...>
+							eleImg.setAttribute("class", "thumb");       //<img src=... class='thumb'>
+							cellImage.appendChild(eleImg);
+
+							var cellQtyTD = document.createElement("td");
+							var cellQty = document.createElement("input");
+							cellQty.setAttribute("type", "number");
+							cellQty.setAttribute("min", 0);
+							elementID=shopping_list[j][0];
+							console.log(elementID);
+							cellQty.setAttribute("onchange", "NumChangef('"+elementID+"',this.value)");
+
+							var qty=localStorage[key];  //localStorage key的 value														
+							cellQty.setAttribute("value", qty);
+							cellQty.setAttribute("id", "id" + shopping_list[j][0]);
+							cellQtyTD.appendChild(cellQty);
+							subtotal = parseInt(subtotal) + parseInt(txtPrice.nodeValue)*parseInt(qty);
+
+							row.appendChild(cellID);
+							row.appendChild(cellImage);
+							row.appendChild(cellName);
+							row.appendChild(cellPrice);
+							row.appendChild(cellQtyTD);
+							console.log(row)
+							theTbody.appendChild(row);
+
+							document.getElementById("idtotal").innerHTML = "小計 : " + subtotal;
+							break;
+						}	//if(shopping_list[j][0]==key)					
+						
+					}  //for shopping_list.length
+
+				}  //for localStorage.length
+				
+			}  // if localStorage.length	
+		    
+			function shoppingf(elementID){
+
+				// click的產品 id
+				// alert(elementID)
+				console.log(elementID);	       
+		        var element = document.getElementById(elementID);  //object		 			 	
+				// console.log(element);
+
+		        var theTbody = document.getElementById("tbody2");
+		        var row = document.createElement("tr");
+		        
+				console.log(localStorage.getItem(elementID));  //get value
+				if(localStorage.getItem(elementID)){
+		            //alert('購物已包含此項目，請直接修改購物車品項數量 !');
+						console.log(elementID);
+						console.log("loc="+localStorage[elementID]);
+						console.log("get="+localStorage.getItem(elementID));
+						localStorage[elementID]=parseInt(localStorage[elementID])+1;
+						
+						var hasID = document.getElementById("id" + elementID);
+						hasID.value=parseInt(localStorage[elementID]);
+						for (let i = 0; i < shopping_list.length; i++) {
+							if (shopping_list[i][0] == elementID) {
+								console.log("hasID="+hasID.value);
+								console.log("subtotal="+subtotal)
+								hasIDTotal = shopping_list[i][2] ;
+								subtotal += hasIDTotal;
+								document.getElementById("idtotal").innerHTML = "小計 : " + subtotal;
+							}  //if (shopping_list[i][0] == elementID)
+		            	}  //for (let i = 0; i < shopping_list.length; i++)			
+						
+						
+		        } else {  //if(localStorage.getItem(elementID))
+					var qty=localStorage[elementID]=1;
+					console.log(elementID)
+		            for (let i = 0; i < shopping_list.length; i++) {
+		                if (shopping_list[i][0] == elementID) {
+                           console.log(elementID)
+		                    var cellID = document.createElement("td");
+		                    var txtID = document.createTextNode(no++);
+		                    cellID.appendChild(txtID);
+
+		                    var cellName = document.createElement("td");
+		                    var txtName = document.createTextNode(shopping_list[i][1]);
+		                    cellName.appendChild(txtName);
+
+		                    var cellPrice = document.createElement("td");
+		                    var txtPrice = document.createTextNode(shopping_list[i][2]);
+		                    cellPrice.appendChild(txtPrice);
+
+		                    var cellImage = document.createElement("td");
+		                    var eleImg = document.createElement("img");  //<img>
+		                    eleImg.setAttribute("src", element.src);     //<img src=...>
+		                    eleImg.setAttribute("class", "thumb");       //<img src=... class='thumb'>
+		                    cellImage.appendChild(eleImg);
+
+		                    var cellQtyTD = document.createElement("td");
+							cellQtyTD.setAttribute("width","40px")
+		                    var cellQty = document.createElement("input");
+							cellQty.setAttribute("type", "number");
+							cellQty.setAttribute("min", 0);
+							// NumPrice=shopping_list[i][2];
+							console.log(shopping_list[i][2]);
+							console.log(typeof elementID);
+							console.log(elementID);
+							console.log(parseInt(localStorage[elementID]));
+							// cellQty.setAttribute("onchange", "NumChangef('"+elementID+"',NumPrice,this.value,hasQty)");
+							cellQty.setAttribute("onchange", "NumChangef('"+elementID+"',this.value)");
+
+		                    // cellQty.setAttribute("type", "text");
+		                    // cellQty.setAttribute("size", 3);
+		                    cellQty.setAttribute("value", qty);
+		                    cellQty.setAttribute("id", "id" + elementID);
+		                    cellQtyTD.appendChild(cellQty);
+		                    subtotal = parseInt(subtotal) + parseInt(txtPrice.nodeValue);
+		                }  //if     		
+		            }  //for
+
+		            row.appendChild(cellID);
+		            row.appendChild(cellImage);
+		            row.appendChild(cellName);
+		            row.appendChild(cellPrice);
+		            row.appendChild(cellQtyTD);
+
+		            theTbody.appendChild(row);
+		        }//else
+
+		        document.getElementById("idtotal").innerHTML = "小計 : " + subtotal;
+
+		    }
+
+		function NumChangef(elementID,qty){
+			console.log(elementID);
+			console.log(qty)
+			localStorage.getItem(elementID);
+			console.log(localStorage.getItem(elementID))
+			localStorage.setItem(elementID,qty);
+
+			subtotal=0;
+			console.log(localStorage);
+			console.log(localStorage.length);
+			for(let i=0;i<localStorage.length;i++){
+				console.log(localStorage.key(i));
+				elementIDKey=localStorage.key(i);
+				console.log(elementIDKey);
+				console.log(localStorage.getItem(elementIDKey));
+				qty=localStorage.getItem(elementIDKey);
+
+				for (let j = 0; j < shopping_list.length; j++) {
+		                if (shopping_list[j][0] == elementIDKey) {
+							console.log(elementIDKey,qty)
+							subtotal+=shopping_list[j][2]*qty
+						}
+				}
+			}
+						document.getElementById("idtotal").innerHTML = "小計 : " + subtotal;
+		}
+		</script>
+	</body>
+</html>
+
+

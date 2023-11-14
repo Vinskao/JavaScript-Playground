@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>02rect.html</title>
+    <script>
+        window.onload = function () {
+            var canvas = document.getElementById("myCanvas");
+            var context = canvas.getContext("2d");
+
+            context.shadowOffsetX = 5;  //陰影相對座標
+            context.shadowOffsetY = 5;
+            context.shadowBlur = 4;  //模糊度
+            context.shadowColor = "rgba(0,0,0,0.3)";  //alpha 透明度
+            //context.shadowColor = "rgb(0,255,0)";
+
+            context.fillStyle = "#00ffff";
+            context.fillRect(0, 60, 150, 50);
+            context.strokeStyle = "#ff0000";
+            context.strokeRect(0, 60, 150, 50);
+
+            context.fillStyle = "#0000ff";
+            context.fillRect(0,0,150,50);
+
+            context.clearRect(30,25,90,60);
+
+        };
+    </script>
+</head>
+<body>
+    <canvas id="myCanvas" width="400" height="300"></canvas>
+</body>
+</html>

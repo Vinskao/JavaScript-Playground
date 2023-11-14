@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>05createOptionObject.html</title>    
+	</head>
+	<body>
+        <select id="idSelectYear"></select>
+        <select id="idSelectMonth"></select>
+        <select id="idSelectDay"></select>
+        <script>
+            let yy,mm;
+            document.getElementById('idSelectYear').addEventListener("change",addDay);
+            document.getElementById('idSelectMonth').addEventListener("change",addDay);
+            function addDay(){
+                console.log(document.getElementById('idSelectYear').value)
+                console.log(document.getElementById('idSelectMonth').value)
+            }
+            let docFrag = document.createDocumentFragment();
+            for (let i = 2010; i <= 2030; i++) {   //新增月 
+                let opt = document.createElement("option");
+                opt.setAttribute("value", i);
+                let optTxt = document.createTextNode(i);
+                opt.appendChild(optTxt);
+                //opt.value = i;
+                //opt.innerHTML = i;
+                docFrag.appendChild(opt);
+            }
+            document.getElementById('idSelectYear').appendChild(docFrag);
+
+            docFrag = document.createDocumentFragment();
+            for (let i = 1; i <= 12; i++) {   //新增月 
+                let opt = document.createElement("option");
+                opt.setAttribute("value", i);
+                let optTxt = document.createTextNode(i);
+                opt.appendChild(optTxt);
+                //opt.value = i;
+                //opt.innerHTML = i;
+                docFrag.appendChild(opt);
+            }
+            document.getElementById('idSelectMonth').appendChild(docFrag);
+
+            let d=new Date(2023,10,0);  //11月的第0天就是10月的最後一天
+            // console.log(d);
+        </script>
+	</body>
+
+</html>

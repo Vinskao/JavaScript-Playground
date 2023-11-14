@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <title>02DataTypes.html</title>
+</head>
+
+<body>
+    <script>
+        //數字變數
+        let a = 10;
+        console.log(`a=${a},a typeof=${typeof a}`);  //number
+        //字串變數
+        a = "abc";
+        console.log(`a=${a},a typeof=${typeof a}`);   //string
+
+        //布林變數             
+        let c = true;
+        let d = c + 5;
+        console.log(`c=${c},c typeof=${typeof c}`);
+        console.log(`d=${d},d typeof=${typeof d}`);
+
+        if (5)
+            console.log(true);
+        else
+            console.log(false);
+
+        //null
+        let n = null;
+        console.log(`n=${n},n typeof=${typeof n}`);  //object
+
+        //如果沒有初始值，JavaScript會自動將變數的值初始化為undefined(預設值 default value) 
+        let u;
+        console.log(`u=${u},u typeof=${typeof u}`);
+
+        let i = NaN;
+        let j = i + 2;
+        console.log(j);  //NaN not a number
+
+        //字串轉換為數值
+        console.log(`parseInt("12a3.45")=${parseInt("12a3.45")}`);
+        console.log(`parseInt("123.45")=${parseInt("123.45")}`);
+        console.log(`parseInt("a123.45")=${parseInt("a123.45")}`);
+        console.log(`Number("12a3.45")=${Number("12a3.45")}`);
+        console.log(`Number("123.45")=${Number("123.45")}`);
+        console.log(`Number("a123.45")=${Number("a123.45")}`);
+
+        //數值轉換為字串
+        let price = 60.9;
+        console.log(price);  //60.9
+        console.log(typeof price);//number
+        console.log("price=$" + price);
+        console.log(typeof ("price=$" + price));
+        console.log(`price=$${price}`);
+        console.log(typeof `price=$${price}`);
+        console.log(price.toString());
+        console.log(typeof price.toString());
+
+    </script>
+</body>
+
+</html>

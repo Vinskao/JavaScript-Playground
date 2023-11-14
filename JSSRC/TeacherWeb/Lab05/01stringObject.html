@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <title>01stringObject.html</title>
+</head>
+
+<body>
+    <div id="info"></div>
+    <script>
+        let str = "java script";  //字串變數  
+        console.log(typeof str);
+        //字串物件
+        let strObj = new String("java script hello");
+        console.log(typeof strObj);
+
+        console.log("strObj.charAt(3)=" + strObj.charAt(3));  //a
+        console.log("strObj.charCodeAt(3)=" + strObj.charCodeAt(3));  //97
+        console.log("strObj.indexOf('a')=" + strObj.indexOf('a'));  //1
+        console.log("strObj.lastIndexOf('a')=" + strObj.lastIndexOf('a'));  //3
+        console.log("strObj.lastIndexOf('@')=" + strObj.lastIndexOf('@'));  //-1
+        console.log("strObj.substr(5,3)=" + strObj.substr(5, 3));  //scr
+        console.log("strObj.substr(5)=" + strObj.substr(5));  //script hello
+        console.log("strObj.substring(5,8)=" + strObj.substring(5, 8));  //scr
+        console.log("strObj.split(' ')=" + strObj.split(' '));  //java,script,hello
+        console.log(strObj.split(' ', 2));
+        console.log("strObj.toUpperCase()=" + strObj.toUpperCase());
+
+        let strObj2 = new String("a一二三");
+        let ch = strObj2.charCodeAt(0);
+        console.log(ch)
+        console.log(strObj2);
+        if (ch >= 0x4e00 && ch <= 0x9fff) {
+            console.log(true);
+        } else {
+            console.log(false);
+        }
+
+    </script>
+</body>
+
+</html>

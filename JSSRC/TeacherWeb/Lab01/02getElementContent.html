@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <title>01getElementContent.html</title>
+</head>
+
+<body>
+    <div id="myDiv">abc</div>
+    <script>
+        var Obj = document.getElementById("myDiv");
+        console.log(Obj);  //<div id="myDiv"></div>
+        // document.write(Obj);  //[object HTMLDivElement]  [datatype class]
+        Obj.innerHTML = "<h2>EEIT157</h2>";
+        Obj.innerHTML += "JavaScript";
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <title>02if.html</title>
+</head>
+
+<body>
+    <script>
+        // let a = 10, b = 20;
+
+        //使用window.prompt()方法，取得變數値
+        // let a = parseInt(window.prompt("plase input a", "10"));
+        // let b = parseInt(prompt("plase input b"));
+        // if (a > b)
+        //     console.log("a > b");
+        // else
+        //     console.log("a < b");
+
+        let age = parseInt(window.prompt("plase input age", "10"));
+
+        // if (0 < age && age <= 6 || age >= 65)
+        //     console.log("free");
+        // else if (6 < age && age <= 25)
+        //     console.log("student");
+        // else if (25 < age && age < 65)
+        //     console.log("full");
+
+        switch (age) {
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6: console.log("free"); break;
+            case 7, 8, 9: console.log("student"); break
+
+        }
+
+        // var Transportation = "",
+        //     money=parseInt(prompt("請輸入你有多少錢"));
+        // if(money > 2500){
+        //     Transportation = "飛機";
+        // }else if(money > 1500){
+        //     Transportation = "高鐵";
+        // }else if(money > 1000){
+        //     Transportation = "火車";
+        // }else if(money > 500){
+        //     Transportation = "統聯";
+        // }else{
+        //     Transportation = "摩托車";
+        // }
+        // console.log("台北到高雄坐 " + Transportation);
+
+    </script>
+</body>
+
+</html>

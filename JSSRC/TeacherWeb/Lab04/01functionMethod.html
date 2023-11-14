@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <title>01functionMethod.html</title>
+</head>
+
+<body>
+    <script>
+        //==========定義函數==================
+        //方法一函數宣告，定義帶參數的函數
+        console.log(`fAdd1(10,20)=${fAdd1(10, 20)}`);
+        function fAdd1(a, b) {
+            console.log(`b=${b}`);
+            return (a + b);
+        }
+
+        //==========函數呼叫==================
+        //呼叫帶參數的函數
+        // console.log(`fAdd1(10,20)=${fAdd1(10, 20)}`);
+
+
+        //JavaScript沒有規定function的參數及呼叫function時給予的參數數量必須要一致
+        //少掉的參數為undefined，而多的參數會被忽略
+        console.log(`fAdd1(10)=${fAdd1(10)}`);
+        console.log(`fAdd1(10,20,30)=${fAdd1(10, 20, 30)}`);
+
+        //預設參數值(ES6)
+        function fAdd2(a, b = 200) {
+            console.log(`b=${b}`);
+            return (a + b);
+        }
+        console.log(`fAdd2(100)=${fAdd2(100)}`);
+
+        //==========定義函數==================
+        //方法二暱名函數
+        // console.log(`fAdd3(150,250)=${fAdd3(150, 250)}`);  //error
+        let fAdd3 = function (a, b) {
+            return (a + b);
+        }
+        console.log(`fAdd3(150,250)=${fAdd3(150, 250)}`);
+
+        //IIFE
+        //IIFE (Immediately Invoked Function Expression) 是一個定義完馬上就執行的 JavaScript function (en-US)
+        //他又稱為 Self-Executing Anonymous Function (en-US)，也是一種常見的設計模式，
+        //包含兩個主要部分：第一個部分是使用Grouping Operator (en-US) () 包起來的 anonymous function。
+        //這樣的寫法可以避免裡面的變數污染到 global scope。
+        //第二個部分是馬上執行 function 的 expression ()，JavaScript 引擎看到它就會立刻轉譯該 function。
+        console.log("=============");
+        (function (a, b) {
+            console.log(a + b);
+        })(500, 600);
+
+        //==========定義函數==================
+        //方法三箭頭函數(arrow function)
+        let fAdd4 = (a, b) => {
+            return (a + b);
+        }
+        console.log(`fAdd4(500,20)=${fAdd4(500, 20)}`);
+        console.log("=============");
+        //函數沒有參數
+        let fAdd5 = () => {
+            return "EEIT157";
+        }
+        console.log(`fAdd5()=${fAdd5()}`);
+
+        //如果statement 只有一行，return 和 {} 可省略
+        let fAdd6 = (a, b) => a + b;
+
+        console.log(`fAdd6(500,200)=${fAdd6(500, 200)}`);
+
+        //只有一個參數，()可省略
+        let fAdd7 = a => a + 3000;
+
+        console.log(`fAdd7(500)=${fAdd7(500)}`);
+
+        //顯示函數內容 ==>函數名稱
+        //呼叫函數  ==> 函數名稱() 呼叫
+        let a = 10;
+        console.log(a);
+        let b = a;
+
+        console.log(`fAdd7=${fAdd7}`);
+        console.log(`fAdd6=${fAdd6}`);
+        console.log(`fAdd1=${fAdd1}`);
+
+        fAdd7 = fAdd1;
+        console.log(`fAdd7=${fAdd7}`);
+        function fAdd8() {
+            // alert("Hello!");
+            console.log(1000);
+        }
+        fAdd8();
+        let fAdd9 = fAdd8();   //立即執行
+
+
+    </script>
+</body>
+
+</html>

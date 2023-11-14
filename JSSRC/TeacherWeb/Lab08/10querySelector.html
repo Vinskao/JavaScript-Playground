@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>10querySelector.html</title>
+    <style>
+        table,td{
+            border:1px solid blue;
+            width:300px
+            }
+    </style>    
+</head>
+<body>
+    <table>
+        <tr>
+            <td id="td1">A1</td>
+            <td class="myclass">B2</td>
+            <td>C3</td>
+        </tr>
+        <tr>
+            <td>D4</td>
+            <td class="myclass">E5</td>
+            <td>F6</td>
+        </tr>
+    </table>
+    <hr>
+    <div id="myDiv"></div>
+    
+    <script>
+        //使用document.getElementById()
+        
+
+        //使用document.querySelector()
+        let qs1=document.querySelector("td");
+        console.log(qs1);  //<td id="td1">A1</td>
+        let qs2=document.querySelector(".myclass");
+        console.log(qs2); //<td class="myclass">B2</td>
+        let qs3=document.querySelector("#td1");
+        console.log(qs3);  //<td id="td1">A1</td>
+        console.log(qs3.innerHTML);
+
+        //使用document.querySelectorAll()
+        let qsA1=document.querySelectorAll("td");
+        console.log(qsA1);  //6
+        let qsA2=document.querySelectorAll(".myclass");
+        console.log(qsA2); //2
+        let qsA3=document.querySelectorAll("#td1");
+        console.log(qsA3);  //1
+        console.log(qsA3[0].innerHTML);
+        console.log(qsA3.item(0).innerHTML);
+
+    </script>
+</body>
+</html>

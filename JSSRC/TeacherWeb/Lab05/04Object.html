@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <title>04Object.html</title>
+</head>
+
+<body>
+    <div id="myDiv"></div>
+    <script>
+        function f() {
+            console.log(this);
+            return `${this.brand}-${this["max speed"]}`;
+        }
+        let f3 = () => {
+            console.log(this);  //window
+            return `${cars.brand}-${cars["color"]}`;
+        }
+        let cars = {
+            brand: "telsa",
+            "max speed": 300,
+            color: "white",
+            dispf1: f,
+            dispf2: () => {
+                console.log(this);
+                return `${cars.brand}-${cars["color"]}`;
+            },
+            dispf3: f3
+        }
+
+        // console.log(cars);
+        // console.log(cars.dispf1());   //呼叫方法
+        // console.log(cars.dispf2());   //呼叫方法
+        // console.log(cars.dispf3());
+
+        //for..in
+        let myDiv = document.getElementById("myDiv");
+        for (let prop in cars) {
+            // console.log(prop);
+            // console.log(cars[prop]);
+            console.log(cars.prop);
+            console.log(cars.brand);
+            console.log(cars[prop]);
+            console.log(cars["brand"]);
+            // myDiv.innerHTML += `cars["${prop}"]=${cars[prop]}<br>`;
+            // myDiv.innerHTML += `<li>cars["${prop}"]=${cars[prop]}</li>`;
+        }
+
+    </script>
+</body>
+
+</html>
