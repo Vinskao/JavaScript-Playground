@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
+<head>    <!-- root element -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>02DOM2.html</title>
 </head>
@@ -24,23 +24,32 @@
         //*****************************************
       
         let root =document.documentElement;
-        // console.log(root.nodeName);
+        console.log(root.nodeName);
         let thehead=root.firstElementChild;  //HEAD
         let thebody=root.lastElementChild;  //BODY
         let theUl=thebody.firstElementChild.nextElementSibling.nextElementSibling;  //UL
-        let theUlchilds=theUl.childElementCount;        
-        // console.log(theUl.childNodes);
-        // console.log(theUl.childNodes[1].firstChild.nodeValue);
+        console.log(theUl.nodeName)
+        console.log(theUl)
+
+        let theUlchilds=theUl.childElementCount; 
+        console.log(theUlchilds)       
+        console.log(theUl.childNodes); // node tree 會得到換行text
+
+        console.log(theUl.childNodes); // node tree 會得到換行text
+
+        console.log(theUl.childNodes[1].firstChild.nodeValue);
         // console.log(theUl.children);  //6
-        // console.log(theUl.children[0].innerHTML)
+
+        //DOM node tree
+        console.log(theUl.children[0].innerHTML)
         // console.log(theUl.firstElementChild);
 
-        // let childEl = theUl.firstElementChild;
-        // while ( childEl ) {
-        //     console.log(childEl);
-        //     console.log(childEl.innerHTML)
-        //     childEl = childEl.nextElementSibling;                    
-        // }
+        let childEl = theUl.firstElementChild;
+        while ( childEl ) {
+            console.log(childEl);
+            console.log(childEl.innerHTML)
+            childEl = childEl.nextElementSibling;                    
+        }
     </script>
 </body>
 </html>
