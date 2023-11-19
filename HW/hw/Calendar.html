@@ -4,53 +4,72 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>05createOptionObject.html</title>
     <style>
-      .week-container {
+      .week-container,
+      .option {
         display: flex;
+        justify-content: center;
+      }
+      /* #idSelectYear,
+      #idSelectMonth,
+      #idSelectDay {
+      } */
+
+      #dayBox,
+      .day-box,
+      .day-box.empty {
+        width: 30px;
+        height: 30px;
+        background-color: lightgray;
+        border: 1px solid gray;
+        text-align: center;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .selected-day {
+        background-color: blue;
+        color: white;
       }
 
-      #dayBox {
-        width: 30px;
-        height: 30px;
-        background-color: lightgray;
-        border: 1px solid gray;
-        text-align: center;
-        line-height: 30px;
-      }
-      .day-box {
-        width: 30px;
-        height: 30px;
-        background-color: lightgray;
-        border: 1px solid gray;
-        text-align: center;
-        line-height: 30px;
+      .day-box:hover,
+      .selected-day {
+        background-color: blue;
+        color: white;
       }
     </style>
   </head>
   <body>
-    <select id="idSelectYear"></select>
-    <select id="idSelectMonth"></select>
-    <select id="idSelectDay"></select>
-
-    <div class="week-container">
-      <div class="day-box" id="0">Sun</div>
-      <div class="day-box" id="1">Mon</div>
-      <div class="day-box" id="2">Tue</div>
-      <div class="day-box" id="3">Wed</div>
-      <div class="day-box" id="4">Thu</div>
-      <div class="day-box" id="5">Fri</div>
-      <div class="day-box" id="6">Sat</div>
+    <div class="option">
+      <select id="idSelectYear"></select>
+      <select id="idSelectMonth"></select>
+      <select id="idSelectDay" onchange="changeSelectedDayColor()"></select>
     </div>
+    <div class="week-container">
+      <div class="day-box" id="0" onclick="selectDay(this)">Sun</div>
+      <div class="day-box" id="1" onclick="selectDay(this)">Mon</div>
+      <div class="day-box" id="2" onclick="selectDay(this)">Tue</div>
+      <div class="day-box" id="3" onclick="selectDay(this)">Wed</div>
+      <div class="day-box" id="4" onclick="selectDay(this)">Thu</div>
+      <div class="day-box" id="5" onclick="selectDay(this)">Fri</div>
+      <div class="day-box" id="6" onclick="selectDay(this)">Sat</div>
+    </div>
+    <!-- 點擊該格子時，它會調用名為 selectDay 的 JavaScript 函數，並將被點擊的日期格子的引用 (this) 傳遞給該函數。 -->
+
     <div id="daysContainer"></div>
 
     <script>
-      document
-        .getElementById("idSelectYear")
-        .addEventListener("change", addDay);
-      document
-        .getElementById("idSelectMonth")
-        .addEventListener("change", addDay);
+      function changeSelectedDayColor() {
+        addDay(); //使選擇選項後重新渲染
+      }
+      function selectDay(clickedDay) {
+        let selectedDay = parseInt(clickedDay.innerHTML);
+        document.getElementById("idSelectDay").selectedIndex = selectedDay - 1;
+        changeSelectedDayColor();
+      }
 
-      // 找該年的第一天是星期幾，後順序排列li or td
+      let selectedDay = 1;
+
       function addDay() {
         //parse a string and convert it into an integer
         let selectedYear = parseInt(
@@ -60,23 +79,35 @@
         let selectedMonth = parseInt(
           document.getElementById("idSelectMonth").value
         );
+        let selectedDay = parseInt(
+          document.getElementById("idSelectDay").value
+        );
 
-        let daysSelect = document.getElementById("idSelectDay");
-        daysSelect.innerHTML = "";
-
-        let firstDaySelectedMonth = new Date(
+        let firstDayOfWeekSelectedMonth = new Date(
           selectedYear,
           selectedMonth - 1,
           1
         ).getDay();
-        console.log(firstDaySelectedMonth);
+
         let lastDaySelectedMonth = new Date(
           selectedYear,
           selectedMonth,
           0
         ).getDate();
 
+        let weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+        let daysContainer = document.getElementById("daysContainer");
+        //使用currentWeekContainer來裝一個星期的i
+        let currentWeekContainer = document.createElement("div");
+        currentWeekContainer.setAttribute("class", "week-container");
+        daysContainer.innerHTML = "";
+        //暫時性添加day option 下次選擇時刪除
+        //使用 DocumentFragment 暫時性地構建了一組 option 元素，並將它們添加到 idSelectDay 元素中。由於這些 option 元素是動態生成的，並且在每次選擇年或月時都會更新，為了避免舊的 option 元素重複出現，在每次添加新的 option 元素之前都清空了 idSelectDay 元素。
         let docFrag = document.createDocumentFragment();
+
+        // console.log(lastDaySelectedMonth);
+        document.getElementById("idSelectDay").innerHTML = "";
 
         for (let i = 1; i <= lastDaySelectedMonth; i++) {
           //製造選項
@@ -84,72 +115,111 @@
           opt.setAttribute("value", i);
           let optTxt = document.createTextNode(i); //創造可看到的文字元素
           opt.appendChild(optTxt); //放入option中
-          docFrag.appendChild(opt);
-        }
-        daysSelect.appendChild(docFrag);
+          document.getElementById("idSelectDay").appendChild(opt);
+          // console.log(document.getElementById("idSelectDay"));
+          //製造日期格子
+          let dayDiv = document.createElement("div");
+          dayDiv.setAttribute("class", "day-box");
+          dayDiv.setAttribute("onclick", "selectDay(this)");
+          dayDiv.innerHTML = i;
+          // 計算星期幾
+          let dayOfWeek = (firstDayOfWeekSelectedMonth + i - 1) % 7;
+          if (dayOfWeek === 0) {
+            if (i !== 1) {
+              //不是當月的第一天 增加currentWeekContainer
+              //確保該月第一天是星期天可以加入一個currentWeekContainer
 
-        let daysContainer = document.getElementById("daysContainer");
+              daysContainer.appendChild(currentWeekContainer);
+              currentWeekContainer = document.createElement("div");
+              currentWeekContainer.setAttribute("class", "week-container");
+            }
+          }
 
-        // daysContainer.innerHTML = "";
+          if (i === 1) {
+            //在第一個日期之前插入空白的 dayDiv
+            for (let j = 0; j < firstDayOfWeekSelectedMonth; j++) {
+              let emptyDayDiv = document.createElement("div");
+              emptyDayDiv.setAttribute("class", "day-box empty");
+              currentWeekContainer.appendChild(emptyDayDiv);
+            }
+            //先放入空白div放入currentWeekContainer 才將有數字的div放入currentWeekContainer
+            currentWeekContainer.appendChild(dayDiv);
 
-        //製造日期格子
-
-        if (daysContainer.children.length === 0) {
-          for (let i = 1; i <= lastDaySelectedMonth; i++) {
-            let dayDiv = document.createElement("div");
-            dayDiv.setAttribute("id", "dayBox");
+            // dayDiv.innerHTML = weekdays[dayOfWeek];
+          } else {
+            // 其他日期
             dayDiv.innerHTML = i;
-            daysContainer.appendChild(dayDiv);
+
+            //將dayDiv放到  currentWeekContainer之下
+            currentWeekContainer.appendChild(dayDiv);
+            if (selectedDay === i) {
+              dayDiv.classList.add("selected-day");
+            }
+            // 如果是一行的最後一個，插入換行的 div
+            if (dayOfWeek === 6 || i === lastDaySelectedMonth) {
+              // 判斷是否需要補齊空白的 day-box
+              if (i === lastDaySelectedMonth && dayOfWeek < 6) {
+                for (let k = dayOfWeek + 1; k <= 6; k++) {
+                  let emptyDayDiv = document.createElement("div");
+                  emptyDayDiv.setAttribute("class", "day-box empty");
+                  currentWeekContainer.appendChild(emptyDayDiv);
+                }
+              }
+
+              daysContainer.appendChild(currentWeekContainer);
+              // 如果不是最後一個日期，開始下一行
+              if (i < lastDaySelectedMonth) {
+                currentWeekContainer = document.createElement("div");
+                currentWeekContainer.setAttribute("class", "week-container");
+              }
+            }
           }
         }
-
-        let dayBoxes = document.querySelectorAll(".day-box");
-        let dayIndex;
-        dayBoxes.forEach((box, i) => {
-          //forEach 方法用於對數組或 NodeList 中的每個元素執行提供的函數。在這種情況下，提供的函數有兩個參數：box 和 i。
-
-          //box: 這個參數表示在迴圈的每一次迭代中處理的 dayBoxes NodeList 中的當前元素。在函數內部，您可以通過 box 來引用當前元素。
-
-          //i: 這個參數表示在迴圈的每一次迭代中，當前元素在 dayBoxes NodeList 中的索引。對於第一個元素，索引為 0；對於第二個元素，索引為 1，以此類推。
-          dayIndex = (firstDaySelectedMonth + i + 1) % 7;
-          box.setAttribute("data-dayIndex", dayIndex);
-          console.log("ff" + box);
-        });
-        console.log(dayIndex);
-
-        // console.log(dayBoxes);
-        // console.log(selectedYear);
-        // console.log(selectedMonth);
+        //獲取了具有 id 為 "idSelectDay" 的 HTML 元素
+        //.selectedIndex: 這是 HTML Select 元素的一個屬性，它表示當前選中的項目在下拉框中的索引。索引是從 0 開始
+        //日期是從 1 開始的，而索引是從 0 開始的，所以需要將 selectedDay 減去 1。
+        //將下拉框的選中項目設置為與點擊的日期相對應的i
+        document.getElementById("idSelectDay").selectedIndex = selectedDay - 1;
       }
-      addDay();
+      document.addEventListener("DOMContentLoaded", () => {
+        document
+          .getElementById("idSelectYear")
+          .addEventListener("change", addDay);
+        document
+          .getElementById("idSelectMonth")
+          .addEventListener("change", addDay);
 
-      let docFrag = document.createDocumentFragment();
-      //當您需要執行多個操作來構建或修改 DOM 節點時，將這些操作放在 DocumentFragment 中，最後再將整個 DocumentFragment 插入到文檔中。這樣可以減少重排（reflow）和重繪（repaint）的次數
+        document.getElementById("idSelectDay").innerHTML = "";
+        addDay();
 
-      for (let i = 2010; i <= 2030; i++) {
-        //新增年
-        let opt = document.createElement("option");
-        opt.setAttribute("value", i);
-        let optTxt = document.createTextNode(i);
-        opt.appendChild(optTxt);
-        //opt.value = i;
-        //opt.innerHTML = i;
-        docFrag.appendChild(opt);
-      }
-      document.getElementById("idSelectYear").appendChild(docFrag);
+        let docFrag = document.createDocumentFragment();
+        //當您需要執行多個操作來構建或修改 DOM 節點時，將這些操作放在 DocumentFragment 中，最後再將整個 DocumentFragment 插入到文檔中。這樣可以減少重排（reflow）和重繪（repaint）的次數
 
-      docFrag = document.createDocumentFragment();
-      for (let i = 1; i <= 12; i++) {
-        //新增月
-        let opt = document.createElement("option");
-        opt.setAttribute("value", i);
-        let optTxt = document.createTextNode(i);
-        opt.appendChild(optTxt);
-        //opt.value = i;
-        //opt.innerHTML = i;
-        docFrag.appendChild(opt);
-      }
-      document.getElementById("idSelectMonth").appendChild(docFrag);
+        for (let i = 2010; i <= 2030; i++) {
+          //新增年
+          let opt = document.createElement("option");
+          opt.setAttribute("value", i);
+          let optTxt = document.createTextNode(i);
+          opt.appendChild(optTxt);
+          //opt.value = i;
+          //opt.innerHTML = i;
+          docFrag.appendChild(opt);
+        }
+        document.getElementById("idSelectYear").appendChild(docFrag);
+
+        docFrag = document.createDocumentFragment();
+        for (let i = 1; i <= 12; i++) {
+          //新增月
+          let opt = document.createElement("option");
+          opt.setAttribute("value", i);
+          let optTxt = document.createTextNode(i);
+          opt.appendChild(optTxt);
+          //opt.value = i;
+          //opt.innerHTML = i;
+          docFrag.appendChild(opt);
+        }
+        document.getElementById("idSelectMonth").appendChild(docFrag);
+      });
     </script>
   </body>
 </html>
